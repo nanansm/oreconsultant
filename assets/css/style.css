@@ -3342,6 +3342,10 @@ p:last-child {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
+.bgcolorblueore{
+  background-color: #2E64AF;
+}
+
 .from-ColorBlack\/0 {
   --tw-gradient-from: rgb(10 16 47 / 0) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(10 16 47 / 0) var(--tw-gradient-to-position);
