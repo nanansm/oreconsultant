@@ -2956,6 +2956,7 @@ p:last-child {
   border-color: rgb(0 0 255 / var(--tw-border-opacity));
 }
 
+
 .border-\[\#0E0E0E\] {
   --tw-border-opacity: 1;
   border-color: rgb(14 14 14 / var(--tw-border-opacity));
@@ -3342,8 +3343,20 @@ p:last-child {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
 
-.bgcolorblueore{
-  background-color: #2E64AF;
+.bgcolorore1{
+  background-color: #ed7931;
+}
+
+.bgcolorore2{
+  background-color: #27466f;
+}
+
+.bgcolorore3{
+  background-color: #60a3cc;
+}
+
+.bgcolorore4{
+  background-color: #cd8d6e;
 }
 
 .from-ColorBlack\/0 {
@@ -4222,7 +4235,27 @@ p:last-child {
 
 .text-white {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: #ffffff;
+}
+
+.text-ore1{
+  color: #ed7931;
+}
+
+.text-ore2{
+  color: #27466f;
+}
+
+.text-ore3{
+  color: #60a3cc;
+}
+
+.text-ore4{
+  color: #cd8d6e;
+}
+
+.stroke-white{
+  -webkit-text-stroke: 0.5px #ffffff;
 }
 
 .text-white\/70 {
