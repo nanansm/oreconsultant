@@ -447,7 +447,7 @@ video {
 body,
   .page-wrapper {
   min-height: 100vh;
-  font-family: Inter, sans-serif;
+  font-family: Poppins, sans-serif;
   font-size: 1.125rem;
   line-height: 1.75rem;
   line-height: 1.66;
@@ -981,21 +981,21 @@ p:last-child {
 
 .is-honey-suckle-2 {
   --tw-border-opacity: 1;
-  border-color: rgb(233 255 151 / var(--tw-border-opacity));
+  border-color: #000000;
   --tw-bg-opacity: 1;
-  background-color: rgb(233 255 151 / var(--tw-bg-opacity));
+  background-color: #27466f;
   --tw-text-opacity: 1;
-  color: rgb(43 19 185 / var(--tw-text-opacity));
+  color: #ffffff;
 }
 
 .is-honey-suckle-2:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(43 19 185 / var(--tw-border-opacity));
+  border-color: #000000;
   background-color: transparent;
   --tw-bg-opacity: 1;
-  background-color: rgb(43 19 185 / var(--tw-bg-opacity));
+  background-color: #ed7931;
   --tw-text-opacity: 1;
-  color: rgb(233 255 151 / var(--tw-text-opacity));
+  color: #ffffff;
 }
 
 .is-outline-white {
@@ -3685,6 +3685,14 @@ p:last-child {
 
 .font-Sora {
   font-family: Sora, sans-serif;
+}
+
+.font-kanit {
+  font-family: Kanit, sans-serif;
+}
+
+.font-poppins {
+  font-family: Poppins, sans-serif;
 }
 
 .font-Syne {
@@ -7850,4 +7858,31 @@ p:last-child {
   .xxl\:text-\[90px\] {
     font-size: 90px;
   }
+
+
+  .float{
+    position:fixed;
+    right:35px;
+    bottom:50px;
+    width:45px;
+    height:45px;
+    /*background-color:#25d366;*/
+    /*color:#FFF;*/
+    text-align:center;
+    line-height: 45px;
+    border-radius:50%;
+    z-index:999;
+  }
+  .float i {
+      line-height: inherit;
+  }
+  
+  .float img {
+      line-height: inherit;
+  }
+  
+  .my-float{
+    margin-top:16px;
+  }
+
 }
