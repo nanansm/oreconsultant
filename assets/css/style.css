@@ -966,11 +966,11 @@ p:last-child {
 
 .is-honey-suckle {
   --tw-border-opacity: 1;
-  border-color: rgb(233 255 151 / var(--tw-border-opacity));
+  border-color: #ffffff;
   --tw-bg-opacity: 1;
-  background-color: rgb(233 255 151 / var(--tw-bg-opacity));
+  background-color: #ed7931;
   --tw-text-opacity: 1;
-  color: rgb(43 19 185 / var(--tw-text-opacity));
+  color: #ffffff;
 }
 
 .is-honey-suckle:hover {
