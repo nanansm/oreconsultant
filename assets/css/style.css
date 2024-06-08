@@ -811,6 +811,15 @@ p:last-child {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.is-colorore2 {
+  --tw-border-opacity: 1;
+  border-color: #000000;
+  --tw-bg-opacity: 1;
+  background-color: #27466f;
+  --tw-text-opacity: 1;
+  color: #ffffff;
+}
+
 .is-blue:hover {
   background-color: transparent;
   --tw-text-opacity: 1;
@@ -5258,6 +5267,12 @@ p:last-child {
   background-color: rgb(162 89 255 / var(--tw-bg-opacity));
 }
 
+.after\:bgcolorore2::after {
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: #27466f;
+}
+
 .after\:bg-\[\#BEF8FC\]::after {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
@@ -5729,6 +5744,7 @@ p:last-child {
   --tw-text-opacity: 1;
   color: rgb(162 89 255 / var(--tw-text-opacity));
 }
+
 
 .group:hover .group-hover\:text-ColorViolet {
   --tw-text-opacity: 1;
