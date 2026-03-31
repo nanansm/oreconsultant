@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORE Consultant — Kamu Udah Tahu Masalahnya. Sekarang Saatnya Tahu Jawabannya.</title>
+  <meta name="description" content="ORE Consultant membantu owner UMKM memahami angka bisnis dan mengambil keputusan strategis berbasis data. Bukan akuntan — partner strategis finansial." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:    #0056D2;
+      --blue-dk: #0043A7;
+      --blue-lt: #EBF2FF;
+      --dark:    #101828;
+      --navy:    #0F172A;
+      --gray:    #667085;
+      --gray-lt: #F8FAFC;
+      --border:  #D0D5DD;
+      --accent:  #5468FF;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 24px; transition: all 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #F0F4F8;
+      padding: 12px 24px;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .logo-mark {
+      width: 28px; height: 28px; background: var(--blue); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    }
+    .logo:hover .logo-mark { background: var(--blue-dk); }
+    .logo-mark span { color: white; font-weight: 700; font-size: 15px; }
+    .logo-name { font-size: 18px; font-weight: 700; color: var(--dark); letter-spacing: -0.3px; }
+    .logo-name em { font-style: normal; font-weight: 400; color: var(--gray); font-size: 16px; }
+    .nav-cta {
+      background: var(--dark); color: white; border: none;
+      padding: 10px 20px; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: background 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .nav-cta:hover { background: var(--blue); }
+
+    /* HERO */
+    .hero {
+      padding: 128px 24px 80px;
+      background: linear-gradient(180deg, var(--gray-lt) 0%, var(--white) 100%);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;
+    }
+    @media (min-width: 960px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 64px; } }
+    .hero-content { max-width: 540px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-lt); color: var(--blue);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards;
+    }
+    h1 {
+      font-size: clamp(30px, 4.5vw, 46px); font-weight: 800;
+      line-height: 1.2; letter-spacing: -0.5px; color: var(--dark);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.15s forwards;
+    }
+    .hero-sub {
+      font-size: 18px; line-height: 1.65; color: var(--gray); font-weight: 500;
+      margin-bottom: 32px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.25s forwards;
+    }
+    .hero-btns {
+      display: flex; flex-direction: column; gap: 12px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.32s forwards;
+    }
+    @media (min-width: 440px) { .hero-btns { flex-direction: row; align-items: center; } }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: white;
+      padding: 14px 24px; border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 2px 8px rgba(84,104,255,0.25);
+    }
+    .btn-primary:hover { background: #4355E6; transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); background: white; color: var(--accent);
+      padding: 14px 24px; border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .btn-outline:hover { background: var(--gray-lt); }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative; max-width: 520px; margin: 0 auto; width: 100%;
+      opacity: 0; animation: fadeUp 0.6s ease 0.4s forwards;
+    }
+    .hero-img {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.11);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+    .hero-img img { width: 100%; height: 360px; object-fit: cover; display: block; }
+    .hero-img-placeholder {
+      width: 100%; height: 360px;
+      background: linear-gradient(135deg, #E8EFF8 0%, #D0DFF5 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+    }
+    .hero-img-placeholder p { font-size: 13px; color: var(--gray); font-weight: 500; text-align: center; padding: 0 24px; }
+
+    /* Stats row on visual */
+    .hero-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border-radius: 16px; overflow: hidden;
+      margin-top: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .stat-item {
+      background: white; padding: 16px 12px; text-align: center;
+    }
+    .stat-val { font-size: 22px; font-weight: 800; color: var(--dark); letter-spacing: -0.5px; }
+    .stat-lbl { font-size: 11px; font-weight: 600; color: var(--gray); margin-top: 2px; }
+
+    /* LOGO CLOUD */
+    .logo-cloud { padding: 20px 24px 40px; background: white; }
+    .logo-cloud-inner { max-width: 1120px; margin: 0 auto; border-top: 1px solid #F0F4F8; padding-top: 24px; }
+    .logo-cloud p {
+      text-align: center; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray);
+      margin-bottom: 20px; opacity: 0.55;
+    }
+    .brand-row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      align-items: center; gap: 20px 40px;
+      opacity: 0.35; filter: grayscale(1);
+    }
+    .brand-row span { font-size: 16px; font-weight: 800; color: var(--dark); letter-spacing: -0.2px; }
+
+    /* PAIN AGITATION */
+    .pain-section { background: var(--navy); padding: 80px 24px; }
+    .pain-inner { max-width: 1120px; margin: 0 auto; }
+    .pain-header {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      margin-bottom: 48px; align-items: end;
+    }
+    @media (min-width: 768px) { .pain-header { grid-template-columns: 1fr 1fr; } }
+    .pain-header h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      line-height: 1.25; letter-spacing: -0.3px; color: white;
+    }
+    .pain-header p { font-size: 17px; line-height: 1.65; color: #94A3B8; font-weight: 500; }
+    .pain-cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 640px) { .pain-cards { grid-template-columns: repeat(3, 1fr); } }
+    .pain-card {
+      padding: 24px; border: 1px solid #1E293B;
+      background: rgba(255,255,255,0.03); border-radius: 16px;
+      transition: background 0.2s;
+    }
+    .pain-card:hover { background: rgba(255,255,255,0.06); }
+    .pain-card h3 { font-size: 16px; font-weight: 700; color: #60A5FA; margin-bottom: 10px; }
+    .pain-card p { font-size: 14px; line-height: 1.65; color: #94A3B8; }
+
+    /* SOLUTIONS */
+    .solutions-section { padding: 80px 24px; background: white; border-bottom: 1px solid #F0F4F8; }
+    .solutions-inner { max-width: 1120px; margin: 0 auto; }
+    .section-tag {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 12px;
+    }
+    .solutions-inner h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      letter-spacing: -0.3px; color: var(--dark);
+      margin-bottom: 14px; max-width: 560px;
+    }
+    .solutions-inner > p {
+      font-size: 17px; line-height: 1.65; color: var(--gray);
+      font-weight: 500; max-width: 600px; margin-bottom: 48px;
+    }
+
+    /* Tab toggle (mirror website) */
+    .tab-toggle {
+      display: inline-flex; background: #F3F4F6; border-radius: 100px;
+      padding: 4px; margin-bottom: 40px;
+    }
+    .tab-btn {
+      padding: 10px 24px; border-radius: 100px; border: none;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: all 0.2s; background: transparent; color: #6B7280;
+    }
+    .tab-btn.active { background: var(--dark); color: white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+
+    /* Service cards grid */
+    .service-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 640px) { .service-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 960px) { .service-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .service-card {
+      border: 1px solid var(--border); border-radius: 16px;
+      padding: 24px; background: white;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+    .service-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(84,104,255,0.1);
+    }
+    .service-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--blue-lt); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 16px;
+    }
+    .service-card h3 { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+    .service-card p { font-size: 13px; line-height: 1.65; color: var(--gray); }
+    .service-card .tag {
+      display: inline-block; margin-top: 14px;
+      background: var(--blue-lt); color: var(--blue);
+      font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 100px;
+    }
+
+    /* HOW IT WORKS */
+    .how-section { padding: 80px 24px; background: var(--gray-lt); }
+    .how-inner { max-width: 1120px; margin: 0 auto; }
+    .how-inner h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      letter-spacing: -0.3px; color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .how-inner > p { font-size: 17px; color: var(--gray); font-weight: 500; margin-bottom: 44px; }
+    .steps { display: flex; flex-direction: column; gap: 0; }
+    .step {
+      display: flex; gap: 20px; align-items: flex-start;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px; top: 44px;
+      width: 2px; height: calc(100% - 12px);
+      background: var(--border);
+    }
+    .step-num {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: white; border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 800; color: var(--blue);
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .step-body { padding: 8px 0 36px; }
+    .step-body h3 { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .step-body p { font-size: 14px; line-height: 1.65; color: var(--gray); font-weight: 500; }
+
+    /* TESTIMONIALS */
+    .testi-section { padding: 80px 24px; background: white; }
+    .testi-inner { max-width: 1120px; margin: 0 auto; }
+    .testi-inner h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      letter-spacing: -0.3px; color: var(--dark); margin-bottom: 8px;
+    }
+    .testi-inner > p { font-size: 17px; color: var(--gray); font-weight: 500; margin-bottom: 32px; }
+
+    .testi-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 640px) { .testi-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .testi-card {
+      background: white; border: 1px solid var(--border); border-radius: 20px;
+      padding: 28px 24px; position: relative; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .testi-bigquote {
+      position: absolute; top: 8px; right: 20px;
+      font-size: 80px; line-height: 1; color: var(--blue-lt);
+      font-family: Georgia, serif; pointer-events: none;
+    }
+    .testi-text { font-size: 15px; line-height: 1.75; color: var(--gray); margin-bottom: 20px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      border: 2px solid var(--border); background: var(--blue-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; overflow: hidden; flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name { font-size: 14px; font-weight: 700; color: var(--dark); }
+    .testi-role { font-size: 12px; color: var(--gray); font-weight: 500; margin-top: 2px; }
+
+    /* FAQ STRIP */
+    .faq-section { padding: 80px 24px; background: var(--gray-lt); }
+    .faq-inner { max-width: 720px; margin: 0 auto; }
+    .faq-inner h2 {
+      font-size: clamp(24px, 4vw, 32px); font-weight: 800;
+      letter-spacing: -0.3px; color: var(--dark); margin-bottom: 8px;
+    }
+    .faq-inner > p { font-size: 17px; color: var(--gray); font-weight: 500; margin-bottom: 32px; }
+    .faq-list { display: flex; flex-direction: column; gap: 8px; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 14px;
+      background: white; overflow: hidden;
+    }
+    .faq-q {
+      width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 20px; text-align: left; background: none; border: none;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--dark); cursor: pointer; gap: 12px;
+    }
+    .faq-q svg { flex-shrink: 0; transition: transform 0.3s; color: var(--gray); }
+    .faq-item.open .faq-q svg { transform: rotate(180deg); color: var(--blue); }
+    .faq-item.open .faq-q { color: var(--blue); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+      padding: 0 20px;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 20px 18px; }
+    .faq-a p { font-size: 14px; line-height: 1.7; color: var(--gray); font-weight: 500; }
+
+    /* CTA */
+    .cta-section { padding: 80px 24px; background: white; }
+    .cta-inner { max-width: 1120px; margin: 0 auto; }
+    .cta-box {
+      background: var(--dark); border-radius: 24px; padding: 56px 32px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; top: -80px; left: 50%;
+      transform: translateX(-50%); width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(84,104,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box h2 {
+      font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+      color: white; letter-spacing: -0.3px; margin-bottom: 12px;
+    }
+    .cta-box > p {
+      font-size: 17px; color: rgba(255,255,255,0.55);
+      font-weight: 500; max-width: 480px; margin: 0 auto 32px;
+    }
+    .cta-items {
+      display: flex; flex-direction: column; gap: 10px;
+      max-width: 400px; margin: 0 auto 32px; text-align: left;
+    }
+    .cta-item { display: flex; align-items: flex-start; gap: 12px; }
+    .cta-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(84,104,255,0.3);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+    }
+    .cta-check svg { width: 10px; height: 10px; }
+    .cta-item span { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .btn-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--accent); color: white;
+      padding: 16px 32px; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(84,104,255,0.35); margin-bottom: 14px;
+    }
+    .btn-cta:hover { background: #4355E6; transform: translateY(-2px); }
+    .cta-note { font-size: 13px; color: rgba(255,255,255,0.3); font-weight: 500; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 32px 24px; }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo .logo-name { color: white; }
+    .footer-note { font-size: 13px; color: rgba(255,255,255,0.3); font-weight: 500; }
+    .footer-note a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-note a:hover { color: white; }
+
+    /* STICKY */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+      padding: 12px 20px 16px; background: white;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.07);
+      transform: translateY(100%); transition: transform 0.35s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--dark); color: white;
+      padding: 14px; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .sticky-cta a:hover { background: var(--blue); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (min-width: 640px) {
+      .hero { padding: 140px 40px 100px; }
+      .pain-section, .solutions-section, .how-section,
+      .testi-section, .faq-section, .cta-section { padding: 100px 40px; }
+      nav { padding: 20px 40px; }
+      nav.scrolled { padding: 14px 40px; }
+      footer { padding: 40px; }
+      .logo-cloud { padding: 20px 40px 48px; }
+    }
+
+    /* hidden tab content */
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"><span>O</span></div>
+      <span class="logo-name">ORE <em>Consultant</em></span>
+    </a>
+    <!-- 🔁 Ganti 628XXXXXXXXXX dengan nomor WA ORE -->
+    <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20daftar%20free%20session" class="nav-cta" target="_blank" rel="noopener">
+      Daftar Free Session
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Consideration — Pilih Pendekatan yang Tepat</div>
+
+      <h1>Kamu udah tahu masalahnya. Sekarang saatnya kamu tahu jawabannya.</h1>
+
+      <p class="hero-sub">
+        Pilih pendekatan yang paling sesuai kondisi bisnis kamu saat ini — pendampingan rutin atau analisis strategis untuk keputusan besar.
+      </p>
+
+      <div class="hero-btns">
+        <!-- 🔁 Ganti nomor WA -->
+        <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20daftar%20Free%20Diagnosis%20Session%2030%20menit" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.422 14.499c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/>
+          </svg>
+          Daftar Free Session
+        </a>
+        <a href="#solusi" class="btn-outline">Lihat layanan ORE</a>
+      </div>
+    </div>
+
+    <!-- Hero Visual -->
+    <div class="hero-visual">
+      <div class="hero-img">
+        <!--
+          📸 INSTRUKSI TIM:
+          Uncomment baris img di bawah dan ganti src dengan foto ORE asli.
+          Foto ideal: sesi konsultasi, tim ORE berdiskusi, atau dashboard ORE di layar.
+          Ukuran ideal: 800×600px, rasio 4:3.
+        -->
+        <!-- <img src="foto-ore-mofu.jpg" alt="Sesi konsultasi ORE Consultant" /> -->
+        <div class="hero-img-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="1.5" opacity="0.4">
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <p>📸 Ganti dengan foto sesi konsultasi ORE asli<br/>(min. 800×600px)</p>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-val">30'</div>
+          <div class="stat-lbl">Free session</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">100%</div>
+          <div class="stat-lbl">Tailor-made</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">0</div>
+          <div class="stat-lbl">Komitmen awal</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO CLOUD -->
+<div class="logo-cloud">
+  <div class="logo-cloud-inner">
+    <p>Telah Dipercaya Oleh Berbagai Lini Bisnis</p>
+    <div class="brand-row">
+      <span>LUMINA</span>
+      <span>HAYRA</span>
+      <span>GRIYA DESIGN</span>
+      <span>MORI KITCHEN</span>
+      <span>SENTRA LOGISTIK</span>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN AGITATION -->
+<section class="pain-section">
+  <div class="pain-inner">
+    <div class="pain-header reveal">
+      <h2>Bukan karena bisnis kamu salah. Tapi karena belum ada yang bantu kamu baca artinya.</h2>
+      <p>Kamu udah coba berbagai cara. Tapi angkanya tetap nggak ngomong apa-apa — karena data tanpa interpretasi bukan informasi, itu cuma noise.</p>
+    </div>
+    <div class="pain-cards">
+      <div class="pain-card reveal">
+        <h3>Kamu mulai paham laporan — bukan sekadar lihat angka</h3>
+        <p>Setiap baris punya arti. Dan kamu tahu mana yang harus diperhatikan duluan.</p>
+      </div>
+      <div class="pain-card reveal">
+        <h3>Biaya yang nggak kerasa mulai kelihatan dan bisa dikontrol</h3>
+        <p>Kamu tahu persis mana yang bocor dan mana yang harus diperbaiki lebih dulu.</p>
+      </div>
+      <div class="pain-card reveal">
+        <h3>Ekspansi bukan soal berani — tapi soal angkanya mendukung</h3>
+        <p>Kamu punya proyeksi nyata dengan skenario yang bisa dipegang saat ambil keputusan besar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions-section" id="solusi">
+  <div class="solutions-inner">
+    <span class="section-tag reveal">Solusi Layanan</span>
+    <h2 class="reveal">Solusi terbaik untuk setiap aspek operasional bisnis</h2>
+    <p class="reveal">ORE menyediakan pendampingan dan solusi strategis untuk setiap jenis dan fase bisnis Anda — dari evaluasi rutin hingga lompatan ekspansi.</p>
+
+    <div class="tab-toggle reveal">
+      <button class="tab-btn active" data-tab="monthly">Monthly Retainer</button>
+      <button class="tab-btn" data-tab="strategic">Strategic Retainer</button>
+    </div>
+
+    <!-- Monthly -->
+    <div class="tab-content service-grid active" id="tab-monthly">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M3 3v18h18M7 16l4-4 4 4 4-4"/>
+          </svg>
+        </div>
+        <h3>Monitoring Keuangan Rutin</h3>
+        <p>Cashflow, struktur biaya, dan arah bisnis terpantau setiap bulan. Masalah ketahuan lebih awal sebelum berdampak besar.</p>
+        <span class="tag">Bulanan</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <h3>Identifikasi Masalah Dini</h3>
+        <p>Kami hadir setiap bulan memastikan operasional dan keuangan bisnis Anda terpantau ketat — bukan tunggu laporan akhir tahun.</p>
+        <span class="tag">Proaktif</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <h3>Rekomendasi Bulanan</h3>
+        <p>Bukan sekadar angka — tapi rekomendasi konkret apa yang harus dilakukan bulan ini berdasarkan kondisi aktual bisnis Anda.</p>
+        <span class="tag">Actionable</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+        </div>
+        <h3>Analisis Cost Structure</h3>
+        <p>Bedah struktur biaya bisnis Anda — temukan mana yang efisien dan mana yang memakan margin tanpa disadari.</p>
+        <span class="tag">Cost Efficiency</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3>Cocok untuk Semua Industri</h3>
+        <p>Retail · Jasa · Konveksi · Manufaktur · F&B — setiap bisnis memiliki kondisi berbeda, pendekatan ORE disesuaikan.</p>
+        <span class="tag">Tailor-made</span>
+      </div>
+      <div class="service-card reveal" style="border-color: var(--accent); background: #F8F9FF;">
+        <div class="service-icon" style="background: rgba(84,104,255,0.1);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5468FF" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Mulai dengan Free Session</h3>
+        <p>Diskusi awal gratis 30 menit untuk pahami kondisi bisnis Anda sebelum memutuskan paket yang paling sesuai.</p>
+        <span class="tag" style="background: rgba(84,104,255,0.1); color: var(--accent);">Gratis</span>
+      </div>
+    </div>
+
+    <!-- Strategic -->
+    <div class="tab-content service-grid" id="tab-strategic">
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M2 20h20M6 20V10M12 20V4M18 20v-6"/>
+          </svg>
+        </div>
+        <h3>Business Planning & Projection</h3>
+        <p>Proyeksi bisnis 6–12 bulan ke depan dengan skenario optimis, moderat, dan konservatif berbasis data real bisnis Anda.</p>
+        <span class="tag">Perencanaan</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </div>
+        <h3>Feasibility Study</h3>
+        <p>Analisis kelayakan untuk ekspansi cabang, lini produk baru, atau investasi aset — apakah angkanya mendukung atau tidak.</p>
+        <span class="tag">Ekspansi</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3>Investment Plan</h3>
+        <p>Hitung ROI, payback period, dan risiko investasi sebelum kamu ambil keputusan yang berdampak besar ke kas bisnis.</p>
+        <span class="tag">Investasi</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M3 3h18v18H3zM3 9h18M9 21V9"/>
+          </svg>
+        </div>
+        <h3>Financial Cleanup</h3>
+        <p>Benahi struktur laporan keuangan dari nol — balance sheet, P&L, dan cash flow yang valid untuk jadi dasar analisis.</p>
+        <span class="tag">Fondasi</span>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <h3>Scenario Planning</h3>
+        <p>Simulasikan berbagai skenario bisnis — bagaimana dampaknya ke cashflow dan profit jika kondisi pasar berubah.</p>
+        <span class="tag">Simulasi</span>
+      </div>
+      <div class="service-card reveal" style="border-color: var(--accent); background: #F8F9FF;">
+        <div class="service-icon" style="background: rgba(84,104,255,0.1);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5468FF" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Mulai dengan Free Session</h3>
+        <p>Diskusi awal gratis 30 menit untuk pahami kondisi bisnis Anda sebelum memutuskan paket yang paling sesuai.</p>
+        <span class="tag" style="background: rgba(84,104,255,0.1); color: var(--accent);">Gratis</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <div class="how-inner">
+    <span class="section-tag reveal">Proses Kerja Sama</span>
+    <h2 class="reveal">Bagaimana proses awal bekerja sama dengan ORE?</h2>
+    <p class="reveal">Sangat mudah. Mulai dari diskusi, tanpa tekanan, tanpa komitmen langsung.</p>
+
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Hubungi ORE via WhatsApp</h3>
+          <p>Chat singkat untuk jadwalkan sesi diskusi awal. Tim ORE akan segera merespons dan membantu mengarahkan langkah awal yang sesuai jadwal Anda.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Sesi Diagnosis Gratis (30 Menit)</h3>
+          <p>Diskusi mendalam untuk memahami kondisi bisnis Anda saat ini — masalah, tantangan, dan tujuan yang ingin dicapai. Gratis, tanpa komitmen.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Rekomendasi & Penawaran</h3>
+          <p>Dari hasil diagnosis, ORE akan mengarahkan pendekatan yang paling sesuai — Monthly Retainer atau Strategic Retainer — lengkap dengan scope dan estimasi biaya.</p>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Mulai Pendampingan</h3>
+          <p>Setelah sepakat, pendampingan dimulai. ORE hadir secara rutin (monthly) atau intensif (strategic) sesuai kebutuhan bisnis Anda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <span class="section-tag reveal">Testimoni</span>
+    <h2 class="reveal">Kata mereka yang sudah didampingi ORE.</h2>
+    <p class="reveal">Bukan janji. Ini yang dirasakan owner yang udah tahu angka mereka.</p>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <div class="testi-bigquote">"</div>
+        <p class="testi-text">Setelah bertahun-tahun menjalani bisnis, rasanya pengen banget melakukan analisa mendalam untuk mengetahui bisnis aku growth ga sih? Hasilnya aku jadi lebih tau strategi apa yang harus dilakukan dan bagian mana yang harus dibenahi.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👤</div>
+          <div>
+            <div class="testi-name">Aulia</div>
+            <div class="testi-role">Founder & Owner — Binar (Fashion & Retail)</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal">
+        <div class="testi-bigquote">"</div>
+        <p class="testi-text">Dulu saya cuma tahu omset naik tapi kas kok kosong. Setelah didampingi ORE, saya baru paham struktur biaya saya yang berantakan. Sekarang saya ambil keputusan pakai data, bukan feeling lagi.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">👤</div>
+          <div>
+            <div class="testi-name">Andi Wijaya</div>
+            <div class="testi-role">Founder — Lumina Interior</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <span class="section-tag reveal">FAQ</span>
+    <h2 class="reveal">Pertanyaan yang sering diajukan</h2>
+    <p class="reveal">Temukan jawaban tentang bagaimana ORE dapat menjadi partner strategis Anda.</p>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Apa bedanya ORE dengan akuntan atau jasa pembukuan?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Akuntan atau admin keuangan biasanya fokus pada pencatatan dan penyusunan laporan. Sedangkan ORE berperan sebagai partner strategis yang membantu Anda membaca dan memahami angka tersebut, mengidentifikasi masalah dalam bisnis, dan menentukan langkah ke depan. Bukan hanya "laporan selesai", tapi "arah bisnis menjadi jelas".</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Apa bedanya Monthly Retainer dan Strategic Retainer?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Monthly Retainer adalah pendampingan rutin setiap bulan untuk memastikan kondisi keuangan dan operasional bisnis Anda tetap terpantau — masalah bisa dideteksi lebih awal. Strategic Retainer adalah proyek khusus untuk keputusan bisnis yang lebih besar seperti business planning & projection, feasibility study, atau perencanaan investasi dan ekspansi.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Apakah ORE bisa membantu jika saya belum punya laporan keuangan yang rapi?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Tentu bisa. Bahkan, fase pertama kami (Financial Cleanup) akan membantu Anda merapikan struktur keuangan terlebih dahulu, sehingga data yang digunakan menjadi valid dan dapat dijadikan dasar analisis ke depannya.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Apakah diskusi awal berbayar?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Tidak. Diskusi awal bersifat gratis. Tujuannya murni untuk memahami kebutuhan Anda dan melihat apakah kapabilitas ORE cocok untuk membantu masalah yang sedang Anda hadapi.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-q">
+          Berapa biaya layanan ORE?
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a">
+          <p>Biaya layanan kami disesuaikan dengan kebutuhan, ukuran, dan kompleksitas bisnis Anda. Karena itu, kami sangat menyarankan untuk memulai dari sesi diskusi awal terlebih dahulu agar kami dapat memberikan rekomendasi yang tepat dan efisien bagi Anda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-box reveal">
+      <h2>Cashflow terjaga, keputusan terarah,<br/>bisnis terasa terkendali.</h2>
+      <p>Ini bukan janji. Ini yang dirasakan owner yang udah tahu angka mereka. Mulai dari diskusi gratis 30 menit.</p>
+
+      <div class="cta-items">
+        <div class="cta-item">
+          <div class="cta-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>
+          <span>Gambaran kondisi keuangan bisnis kamu saat ini</span>
+        </div>
+        <div class="cta-item">
+          <div class="cta-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>
+          <span>Identifikasi area yang paling perlu dibenahi lebih dulu</span>
+        </div>
+        <div class="cta-item">
+          <div class="cta-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>
+          <span>Rekomendasi langkah konkret yang bisa langsung dijalankan</span>
+        </div>
+      </div>
+
+      <!-- 🔁 Ganti nomor WA -->
+      <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20daftar%20Free%20Diagnosis%20Session%2030%20menit" class="btn-cta" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.422 14.499c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/>
+        </svg>
+        Chat ORE via WhatsApp
+      </a>
+      <p class="cta-note">Tidak ada komitmen · Tidak ada biaya tersembunyi · Tim ORE langsung respons</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="logo footer-logo">
+      <div class="logo-mark"><span>O</span></div>
+      <span class="logo-name">ORE <em style="color:rgba(255,255,255,0.35)">Consultant</em></span>
+    </a>
+    <div class="footer-note">
+      Partner strategis finansial untuk UMKM Indonesia &nbsp;·&nbsp;
+      <a href="https://oreconsultant.com" target="_blank">oreconsultant.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <!-- 🔁 Ganti nomor WA -->
+  <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20daftar%20free%20session" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.422 14.499c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/>
+    </svg>
+    Daftar Free Session — Gratis 30 Menit
+  </a>
+</div>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+
+  // Sticky CTA
+  const sticky = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    sticky.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
+  }, { passive: true });
+
+  // Tab toggle
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+</body>
+</html>

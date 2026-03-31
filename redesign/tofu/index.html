@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ORE Consultant — Pahami Bisnis Kamu dari Angkanya</title>
+  <meta name="description" content="Bukan akuntan. Bukan pembukuan. ORE adalah partner strategis finansial untuk UMKM yang ingin tumbuh dengan keputusan berbasis data." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:    #0056D2;
+      --blue-dk: #0043A7;
+      --blue-lt: #EBF2FF;
+      --dark:    #101828;
+      --navy:    #0F172A;
+      --gray:    #667085;
+      --gray-lt: #F8FAFC;
+      --border:  #D0D5DD;
+      --accent:  #5468FF;
+      --white:   #FFFFFF;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 24px;
+      transition: all 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #F0F4F8;
+      padding: 12px 24px;
+    }
+    .nav-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { display: flex; align-items: center; gap: 8px; text-decoration: none; cursor: pointer; }
+    .logo-mark {
+      width: 28px; height: 28px; background: var(--blue); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .logo:hover .logo-mark { background: var(--blue-dk); }
+    .logo-mark span { color: white; font-weight: 700; font-size: 15px; }
+    .logo-name { font-size: 18px; font-weight: 700; color: var(--dark); letter-spacing: -0.3px; }
+    .logo-name em { font-style: normal; font-weight: 400; color: var(--gray); font-size: 16px; }
+    .nav-cta {
+      background: var(--dark); color: white; border: none;
+      padding: 10px 20px; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      cursor: pointer; text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: background 0.2s; box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .nav-cta:hover { background: var(--blue); }
+
+    /* HERO */
+    .hero {
+      padding: 128px 24px 80px;
+      background: linear-gradient(180deg, var(--gray-lt) 0%, var(--white) 100%);
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr; gap: 48px; align-items: center;
+    }
+    @media (min-width: 960px) { .hero-inner { grid-template-columns: 1fr 1fr; gap: 64px; } }
+
+    .hero-content { max-width: 540px; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--blue-lt); color: var(--blue);
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.05s forwards;
+    }
+
+    h1 {
+      font-size: clamp(32px, 4.5vw, 48px); font-weight: 800;
+      line-height: 1.2; letter-spacing: -0.5px; color: var(--dark);
+      margin-bottom: 20px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.15s forwards;
+    }
+
+    .hero-sub {
+      font-size: 18px; line-height: 1.65; color: var(--gray); font-weight: 500;
+      margin-bottom: 28px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.25s forwards;
+    }
+
+    .hero-bullets {
+      list-style: none; display: flex; flex-direction: column; gap: 14px;
+      margin-bottom: 32px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.32s forwards;
+    }
+    .hero-bullets li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 15px; font-weight: 500; color: var(--dark); line-height: 1.55;
+    }
+    .hero-bullets li svg { flex-shrink: 0; margin-top: 2px; }
+
+    .hero-btns {
+      display: flex; flex-direction: column; gap: 12px;
+      opacity: 0; animation: fadeUp 0.5s ease 0.38s forwards;
+    }
+    @media (min-width: 440px) { .hero-btns { flex-direction: row; align-items: center; } }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: white;
+      padding: 14px 24px; border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 2px 8px rgba(84,104,255,0.25);
+    }
+    .btn-primary:hover { background: #4355E6; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border); background: white; color: var(--accent);
+      padding: 14px 24px; border-radius: 8px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .btn-outline:hover { background: var(--gray-lt); }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative; max-width: 520px; margin: 0 auto; width: 100%;
+      opacity: 0; animation: fadeUp 0.6s ease 0.45s forwards;
+    }
+    .hero-img {
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.11);
+      border: 1px solid rgba(255,255,255,0.6);
+    }
+    .hero-img img { width: 100%; height: 360px; object-fit: cover; display: block; }
+    .hero-img-placeholder {
+      width: 100%; height: 360px;
+      background: linear-gradient(135deg, #E8EFF8 0%, #D0DFF5 100%);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 10px;
+    }
+    .hero-img-placeholder p { font-size: 13px; color: var(--gray); font-weight: 500; text-align: center; padding: 0 24px; }
+
+    .float-card {
+      position: absolute; background: white;
+      border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+      border: 1px solid var(--border); z-index: 2;
+    }
+    .float-card.left { top: 18%; left: -12px; padding: 12px 14px; animation: bob 4s ease-in-out infinite; }
+    .float-card.right { bottom: 14%; right: -12px; padding: 10px 14px; animation: bob 4s ease-in-out 2s infinite; }
+    .float-label { font-size: 9px; font-weight: 700; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .mini-bars { display: flex; align-items: flex-end; gap: 3px; height: 28px; }
+    .mini-bar { width: 8px; border-radius: 2px; background: var(--blue); opacity: 0.25; }
+    .mini-bar.hi { opacity: 1; }
+    .float-right-row { display: flex; align-items: center; gap: 10px; }
+    .float-icon-wrap {
+      width: 32px; height: 32px; border-radius: 8px;
+      background: var(--blue-lt); display: flex; align-items: center; justify-content: center;
+    }
+    .float-val { font-size: 13px; font-weight: 800; color: var(--dark); }
+    .float-sub { font-size: 10px; font-weight: 600; color: var(--gray); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* LOGO CLOUD */
+    .logo-cloud { padding: 20px 24px 40px; background: white; }
+    .logo-cloud-inner { max-width: 1120px; margin: 0 auto; border-top: 1px solid #F0F4F8; padding-top: 24px; }
+    .logo-cloud p {
+      text-align: center; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase; color: var(--gray);
+      margin-bottom: 20px; opacity: 0.55;
+    }
+    .brand-row {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      align-items: center; gap: 20px 40px;
+      opacity: 0.35; filter: grayscale(1);
+    }
+    .brand-row span { font-size: 16px; font-weight: 800; color: var(--dark); letter-spacing: -0.2px; }
+
+    /* PROBLEM */
+    .problem-section { background: var(--navy); padding: 80px 24px; }
+    .problem-inner { max-width: 1120px; margin: 0 auto; }
+    .problem-head {
+      display: grid; grid-template-columns: 1fr; gap: 16px;
+      margin-bottom: 44px; align-items: end;
+    }
+    @media (min-width: 768px) { .problem-head { grid-template-columns: 1fr 1fr; } }
+    .problem-head h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      line-height: 1.25; letter-spacing: -0.3px; color: white;
+    }
+    .problem-head p { font-size: 17px; line-height: 1.65; color: #94A3B8; font-weight: 500; }
+    .problem-cards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 640px) { .problem-cards { grid-template-columns: repeat(3, 1fr); } }
+    .p-card {
+      padding: 24px; border: 1px solid #1E293B;
+      background: rgba(255,255,255,0.03); border-radius: 16px;
+      transition: background 0.2s;
+    }
+    .p-card:hover { background: rgba(255,255,255,0.06); }
+    .p-card h3 { font-size: 17px; font-weight: 700; color: #60A5FA; margin-bottom: 10px; }
+    .p-card p { font-size: 14px; line-height: 1.65; color: #94A3B8; }
+
+    /* SOLUTIONS */
+    .solutions-section { padding: 80px 24px; background: white; border-bottom: 1px solid #F0F4F8; }
+    .solutions-inner { max-width: 1120px; margin: 0 auto; }
+    .section-tag {
+      display: block; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 12px;
+    }
+    .solutions-inner h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      letter-spacing: -0.3px; color: var(--dark);
+      margin-bottom: 14px; max-width: 560px;
+    }
+    .solutions-inner > p {
+      font-size: 17px; line-height: 1.65; color: var(--gray);
+      font-weight: 500; max-width: 600px; margin-bottom: 44px;
+    }
+
+    /* Comparison table */
+    .compare-table { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .compare-head {
+      display: grid; grid-template-columns: 1fr 40px 1fr;
+      background: var(--dark); padding: 14px 20px;
+    }
+    .compare-head span { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.4); }
+    .compare-head span:last-child { color: #60A5FA; text-align: right; }
+    .compare-head span:nth-child(2) { text-align: center; }
+    .compare-row {
+      display: grid; grid-template-columns: 1fr 40px 1fr;
+      padding: 14px 20px; border-top: 1px solid var(--border);
+      background: white; align-items: center; transition: background 0.15s;
+    }
+    .compare-row:hover { background: var(--gray-lt); }
+    .compare-row .bad { font-size: 14px; font-weight: 600; color: #9CA3AF; text-decoration: line-through; text-decoration-color: #D1D5DB; }
+    .compare-row .arr { font-size: 14px; color: var(--border); text-align: center; }
+    .compare-row .good { font-size: 14px; font-weight: 700; color: var(--blue); text-align: right; }
+
+    /* TESTIMONIAL */
+    .testi-section { padding: 80px 24px; background: var(--gray-lt); }
+    .testi-inner { max-width: 1120px; margin: 0 auto; }
+    .testi-inner h2 {
+      font-size: clamp(26px, 4vw, 34px); font-weight: 800;
+      letter-spacing: -0.3px; color: var(--dark); margin-bottom: 8px;
+    }
+    .testi-inner > p { font-size: 17px; color: var(--gray); font-weight: 500; margin-bottom: 32px; }
+    .testi-card {
+      background: white; border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px 28px; position: relative; overflow: hidden;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .testi-bigquote {
+      position: absolute; top: 12px; right: 24px;
+      font-size: 90px; line-height: 1; color: var(--blue-lt);
+      font-family: Georgia, serif; pointer-events: none;
+    }
+    .testi-text { font-size: 16px; line-height: 1.8; color: var(--gray); margin-bottom: 24px; }
+    .testi-author { display: flex; align-items: center; gap: 14px; }
+    .testi-avatar {
+      width: 48px; height: 48px; border-radius: 50%;
+      border: 2px solid var(--border); background: var(--blue-lt);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; overflow: hidden; flex-shrink: 0;
+    }
+    .testi-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testi-name { font-size: 15px; font-weight: 700; color: var(--dark); }
+    .testi-role { font-size: 13px; color: var(--gray); font-weight: 500; margin-top: 2px; }
+
+    /* CTA */
+    .cta-section { padding: 80px 24px; background: white; }
+    .cta-inner { max-width: 1120px; margin: 0 auto; }
+    .cta-box {
+      background: var(--dark); border-radius: 24px; padding: 56px 32px;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: ''; position: absolute; top: -80px; left: 50%;
+      transform: translateX(-50%); width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(84,104,255,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box h2 {
+      font-size: clamp(26px, 4vw, 36px); font-weight: 800;
+      color: white; letter-spacing: -0.3px; margin-bottom: 12px;
+    }
+    .cta-box > p {
+      font-size: 17px; color: rgba(255,255,255,0.55);
+      font-weight: 500; max-width: 480px;
+      margin: 0 auto 32px;
+    }
+    .cta-items {
+      display: flex; flex-direction: column; gap: 10px;
+      max-width: 400px; margin: 0 auto 32px; text-align: left;
+    }
+    .cta-item { display: flex; align-items: flex-start; gap: 12px; }
+    .cta-check {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(84,104,255,0.3);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px;
+    }
+    .cta-check svg { width: 10px; height: 10px; }
+    .cta-item span { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.8); line-height: 1.5; }
+    .btn-cta {
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--accent); color: white;
+      padding: 16px 32px; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s, transform 0.15s;
+      box-shadow: 0 4px 20px rgba(84,104,255,0.35); margin-bottom: 14px;
+    }
+    .btn-cta:hover { background: #4355E6; transform: translateY(-2px); }
+    .cta-note { font-size: 13px; color: rgba(255,255,255,0.3); font-weight: 500; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 32px 24px; }
+    .footer-inner {
+      max-width: 1120px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;
+    }
+    .footer-logo .logo-name { color: white; }
+    .footer-note { font-size: 13px; color: rgba(255,255,255,0.3); font-weight: 500; }
+    .footer-note a { color: rgba(255,255,255,0.45); text-decoration: none; }
+    .footer-note a:hover { color: white; }
+
+    /* STICKY */
+    .sticky-cta {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+      padding: 12px 20px 16px; background: white;
+      border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.07);
+      transform: translateY(100%); transition: transform 0.35s ease;
+    }
+    .sticky-cta.show { transform: translateY(0); }
+    .sticky-cta a {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--dark); color: white;
+      padding: 14px; border-radius: 100px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 600;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .sticky-cta a:hover { background: var(--blue); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    @media (min-width: 640px) {
+      .hero { padding: 140px 40px 100px; }
+      .problem-section, .solutions-section, .testi-section, .cta-section { padding: 100px 40px; }
+      nav { padding: 20px 40px; }
+      nav.scrolled { padding: 14px 40px; }
+      footer { padding: 40px; }
+      .logo-cloud { padding: 20px 40px 48px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"><span>O</span></div>
+      <span class="logo-name">ORE <em>Consultant</em></span>
+    </a>
+    <!-- 🔁 Ganti 628XXXXXXXXXX dengan nomor WA ORE -->
+    <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20diskusi%20gratis" class="nav-cta" target="_blank" rel="noopener">
+      Diskusi Sekarang
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Partner Strategis Finansial untuk UMKM</div>
+
+      <h1>Konsultan keuangan bisnis yang lebih dari sekadar pembuat laporan</h1>
+
+      <p class="hero-sub">
+        Sebagai partner strategis finansial, ORE dirancang untuk membantu bisnis menghadapi kompleksitas — lewat solusi berbasis data, bukan perasaan.
+      </p>
+
+      <ul class="hero-bullets">
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#22C55E" flex-shrink="0">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          Membedah angka dan menemukan kebocoran kas yang sering tidak disadari owner.
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#22C55E">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          Mengoptimalkan struktur biaya agar profit margin bersih meningkat signifikan.
+        </li>
+        <li>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="#22C55E">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+          </svg>
+          Merencanakan proyeksi bisnis dan simulasi skenario untuk ekspansi yang aman.
+        </li>
+      </ul>
+
+      <div class="hero-btns">
+        <!-- 🔁 Ganti nomor WA -->
+        <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20cek%20kondisi%20keuangan%20bisnis%20saya%20-%20gratis%2030%20menit" class="btn-primary" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.422 14.499c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/>
+          </svg>
+          WhatsApp Sekarang
+        </a>
+        <a href="#solusi" class="btn-outline">Pelajari lebih lanjut</a>
+      </div>
+    </div>
+
+    <!-- Hero visual -->
+    <div class="hero-visual">
+      <div class="hero-img">
+        <!--
+          📸 INSTRUKSI TIM:
+          Uncomment baris img di bawah dan ganti src dengan foto ORE asli.
+          Hapus div.hero-img-placeholder setelahnya.
+          Ukuran ideal: 800x600px atau lebih, rasio 4:3.
+        -->
+        <!-- <img src="foto-ore-konsultasi.jpg" alt="Sesi konsultasi ORE Consultant" /> -->
+        <div class="hero-img-placeholder">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="1.5" opacity="0.4">
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <path d="M21 15l-5-5L5 21"/>
+          </svg>
+          <p>📸 Ganti dengan foto konsultasi / tim ORE asli<br/>(min. 800×600px, rasio 4:3)</p>
+        </div>
+      </div>
+
+      <!-- Float card kiri -->
+      <div class="float-card left">
+        <div class="float-label">Laba Bisnis</div>
+        <div class="mini-bars">
+          <div class="mini-bar" style="height:25%"></div>
+          <div class="mini-bar" style="height:40%"></div>
+          <div class="mini-bar" style="height:65%"></div>
+          <div class="mini-bar hi" style="height:100%"></div>
+        </div>
+      </div>
+
+      <!-- Float card kanan -->
+      <div class="float-card right">
+        <div class="float-right-row">
+          <div class="float-icon-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0056D2" stroke-width="2.5">
+              <path d="M3 3v18h18M7 16l4-4 4 4 4-4"/>
+            </svg>
+          </div>
+          <div>
+            <div class="float-sub">Efisiensi Cost</div>
+            <div class="float-val">Terkendali ✓</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGO CLOUD -->
+<div class="logo-cloud">
+  <div class="logo-cloud-inner">
+    <p>Telah Dipercaya Oleh Berbagai Lini Bisnis</p>
+    <div class="brand-row">
+      <span>LUMINA</span>
+      <span>HAYRA</span>
+      <span>GRIYA DESIGN</span>
+      <span>MORI KITCHEN</span>
+      <span>SENTRA LOGISTIK</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="problem-section">
+  <div class="problem-inner">
+    <div class="problem-head reveal">
+      <h2>Masalahnya sering kali<br/>bukan di produk Anda.</h2>
+      <p>Tapi pada cara Anda membaca realita di balik angka. Tanpa sistem finansial yang sehat, pertumbuhan hanyalah sebuah risiko yang tertunda.</p>
+    </div>
+    <div class="problem-cards">
+      <div class="p-card reveal">
+        <h3>Omset Ada, Uang Mana?</h3>
+        <p>Transaksi harian terlihat ramai, tapi saldo rekening seringkali tidak mencerminkan keuntungan yang Anda harapkan.</p>
+      </div>
+      <div class="p-card reveal">
+        <h3>Ragu Saat Mau Ekspansi</h3>
+        <p>Ingin buka cabang atau tambah tim tapi tidak punya data valid untuk mengukur apakah fondasi bisnis Anda sanggup.</p>
+      </div>
+      <div class="p-card reveal">
+        <h3>Keputusan Berbasis Tebakan</h3>
+        <p>Seringkali merasa "meraba dalam gelap" saat menentukan strategi harga atau memotong biaya operasional.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS / DIFFERENTIATOR -->
+<section class="solutions-section" id="solusi">
+  <div class="solutions-inner">
+    <span class="section-tag reveal">Bukan akuntan. Bukan pembukuan.</span>
+    <h2 class="reveal">Solusi terbaik untuk setiap aspek<br/>operasional bisnis</h2>
+    <p class="reveal">ORE menyediakan pendampingan dan solusi strategis untuk setiap jenis dan fase bisnis Anda — dari evaluasi rutin hingga lompatan ekspansi.</p>
+
+    <div class="compare-table reveal">
+      <div class="compare-head">
+        <span>Akuntan / Pembukuan</span>
+        <span>vs</span>
+        <span>ORE Consultant</span>
+      </div>
+      <div class="compare-row">
+        <span class="bad">Rekap transaksi</span>
+        <span class="arr">→</span>
+        <span class="good">Analisis & insight mendalam</span>
+      </div>
+      <div class="compare-row">
+        <span class="bad">Laporan selesai</span>
+        <span class="arr">→</span>
+        <span class="good">Arah bisnis menjadi jelas</span>
+      </div>
+      <div class="compare-row">
+        <span class="bad">Angka tercatat</span>
+        <span class="arr">→</span>
+        <span class="good">Angka berbicara ke owner</span>
+      </div>
+      <div class="compare-row">
+        <span class="bad">Laporan pajak rutin</span>
+        <span class="arr">→</span>
+        <span class="good">Proyeksi & skenario ekspansi</span>
+      </div>
+      <div class="compare-row">
+        <span class="bad">Pasif — tunggu data</span>
+        <span class="arr">→</span>
+        <span class="good">Proaktif identifikasi masalah</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testi-section">
+  <div class="testi-inner">
+    <span class="section-tag reveal">Kata klien kami</span>
+    <h2 class="reveal">Bukan janji. Ini yang dirasakan.</h2>
+    <p class="reveal">Owner yang udah tahu angka mereka — ambil keputusan lebih cepat dan lebih tenang.</p>
+
+    <div class="testi-card reveal">
+      <div class="testi-bigquote">"</div>
+      <p class="testi-text">
+        Setelah bertahun-tahun menjalani bisnis, rasanya pengen banget melakukan analisa mendalam untuk mengetahui bisnis aku growth ga sih? Dan analisa mendalam ini aku peroleh dari ORE. Hasilnya aku jadi lebih tau strategi apa yang harus dilakukan, bagian mana yang harus dibenahi, dan jadi jauh lebih optimis untuk membangun bisnis aku.
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">
+          <!--
+            📸 Uncomment dan ganti src jika ada foto Aulia dengan izin:
+            <img src="aulia.jpg" alt="Aulia" />
+          -->
+          👤
+        </div>
+        <div>
+          <div class="testi-name">Aulia</div>
+          <div class="testi-role">Founder & Owner — Binar (Fashion & Retail)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-box reveal">
+      <h2>Cek kondisi bisnis kamu<br/>— gratis, 30 menit.</h2>
+      <p>Diskusi awal bersifat gratis. Tujuannya murni untuk memahami kebutuhan Anda dan melihat apakah ORE bisa membantu masalah yang sedang Anda hadapi.</p>
+
+      <div class="cta-items">
+        <div class="cta-item">
+          <div class="cta-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>
+          <span>Gambaran kondisi keuangan bisnis kamu saat ini</span>
+        </div>
+        <div class="cta-item">
+          <div class="cta-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>
+          <span>Identifikasi area yang paling perlu dibenahi lebih dulu</span>
+        </div>
+        <div class="cta-item">
+          <div class="cta-check"><svg viewBox="0 0 10 10" fill="none" stroke="white" stroke-width="2"><path d="M2 5l2.5 2.5L8 2.5"/></svg></div>
+          <span>Rekomendasi langkah konkret yang bisa langsung dijalankan</span>
+        </div>
+      </div>
+
+      <!-- 🔁 Ganti nomor WA -->
+      <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20mulai%20diskusi%20gratis%2030%20menit" class="btn-cta" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.422 14.499c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/>
+        </svg>
+        Chat ORE via WhatsApp
+      </a>
+      <p class="cta-note">Tidak ada komitmen · Tidak ada biaya tersembunyi · Tim ORE langsung respons</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#" class="logo footer-logo">
+      <div class="logo-mark"><span>O</span></div>
+      <span class="logo-name">ORE <em style="color:rgba(255,255,255,0.35)">Consultant</em></span>
+    </a>
+    <div class="footer-note">
+      Partner strategis finansial untuk UMKM Indonesia &nbsp;·&nbsp;
+      <a href="https://oreconsultant.com" target="_blank">oreconsultant.com</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <!-- 🔁 Ganti nomor WA -->
+  <a href="https://wa.me/628XXXXXXXXXX?text=Halo%20ORE%2C%20saya%20ingin%20diskusi%20gratis" target="_blank" rel="noopener">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm5.422 14.499c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/>
+    </svg>
+    Diskusi Sekarang — Gratis 30 Menit
+  </a>
+</div>
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+
+  // Sticky CTA
+  const sticky = document.getElementById('stickyCta');
+  window.addEventListener('scroll', () => {
+    sticky.classList.toggle('show', window.scrollY > window.innerHeight * 0.5);
+  }, { passive: true });
+</script>
+</body>
+</html>
