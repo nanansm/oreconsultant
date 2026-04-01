@@ -440,6 +440,22 @@
     /* hidden tab content */
     .tab-content { display: none; }
     .tab-content.active { display: grid; }
+
+    .logo-img {
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    nav.scrolled .logo-img {
+      height: 24px;
+    }
+
+    .logo-mark-img {
+      display: flex;
+      align-items: center;
+    }
   </style>
 </head>
 <body>
@@ -448,7 +464,9 @@
 <nav id="navbar">
   <div class="nav-inner">
     <a href="#" class="logo">
-      <div class="logo-mark"><span>O</span></div>
+      <div class="logo-mark-img">
+        <img src="../../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="logo-img" loading="lazy">
+      </div>
       <span class="logo-name">ORE <em>Consultant</em></span>
     </a>
     <!-- 🔁 Ganti 628XXXXXXXXXX dengan nomor WA ORE -->
