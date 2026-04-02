@@ -34,8 +34,8 @@
   <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
       <a href="#" class="flex items-center space-x-2 group">
-        <div class="w-7 h-7 bg-[#0056D2] flex items-center justify-center rounded-sm group-hover:bg-[#0043A7] transition-colors">
-          <span class="text-white font-bold text-base">O</span>
+        <div class="w-12 h-12 flex items-center justify-center rounded-sm group-hover:bg-[#0043A7] transition-colors">
+          <img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy">
         </div>
         <span class="font-bold text-lg tracking-tight text-[#101828]">ORE <span class="font-light text-gray-500 text-base">Consultant</span></span>
       </a>
@@ -69,7 +69,7 @@
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           <div class="max-w-xl">
             <div class="flex items-center space-x-2 mb-6">
-              <div class="w-8 h-8 bg-[#0056D2] flex items-center justify-center rounded-sm"><span class="text-white font-bold text-lg">O</span></div>
+              <div class="w-12 h-12 flex items-center justify-center rounded-sm"><img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy"></div>
               <span class="font-bold text-2xl tracking-tight text-[#101828]">ORE <span class="font-light text-gray-500">Consultant</span></span>
             </div>
             <h1 class="text-4xl md:text-5xl font-extrabold text-[#101828] leading-[1.2] tracking-tight mb-5">Konsultan Keuangan Bisnis yang lebih dari sekadar pembuat laporan</h1>
@@ -119,7 +119,7 @@
     <section class="pb-20 px-6 bg-white">
       <div class="max-w-7xl mx-auto border-t border-gray-100 pt-10">
         <p class="text-center text-xs font-bold uppercase tracking-widest text-gray-400 mb-8">Telah Dipercaya Oleh Berbagai Lini Bisnis</p>
-        <div id="brandCloud" class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale"></div>
+        <div id="brandCloud" class="flex flex-wrap justify-center items-center gap-8 md:gap-16"></div>
       </div>
     </section>
 
@@ -236,7 +236,7 @@
       <div class="max-w-7xl mx-auto">
         <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
           <div class="flex items-center space-x-3">
-            <div class="w-7 h-7 bg-[#0056D2] flex items-center justify-center rounded-sm"><span class="text-white font-bold text-base">O</span></div>
+            <div class="w-12 h-12 flex items-center justify-center rounded-sm"><img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy"></div>
             <span class="font-bold text-lg text-white tracking-tight">ORE <span class="font-light text-gray-400">Consultant</span></span>
           </div>
           <div class="flex space-x-6 text-sm text-gray-400">
@@ -300,7 +300,27 @@
 
 <script>
 // ===== DATA =====
-let brands = ["LUMINA", "HAYRA", "GRIYA DESIGN", "MORI KITCHEN", "SENTRA LOGISTIK"];
+let brands = [
+  { name: "Casacola", src: "image/client-logo/casacola_logo.jpg" },
+  { name: "Hanoon", src: "image/client-logo/hanoon_logo.jpg" },
+  { name: "Alcavella", src: "image/client-logo/logo_alcavella.jpg" },
+  { name: "Bungkusan", src: "image/client-logo/logo_bungkusan.jpg" },
+  { name: "Garland", src: "image/client-logo/Logo_Garland.jpg" },
+  { name: "Markicabs", src: "image/client-logo/logo_markicabs.jpg" },
+  { name: "Soulids", src: "image/client-logo/LOGO_SOULIDS_2.png" },
+  { name: "Popotoan", src: "image/client-logo/popotoan_logo.jpg" },
+  { name: "Tome Ame", src: "image/client-logo/tome_ame_logo.jpg" },
+  { name: "Biji", src: "image/client-logo/biji.webp" },
+  { name: "Binar", src: "image/client-logo/binar.webp" },
+  { name: "HijabPlaza", src: "image/client-logo/hijab_plaza.webp" },
+  { name: "Imagery", src: "image/client-logo/imagery.webp" },
+  { name: "lthrkrft", src: "image/client-logo/lthrkrft.webp" },
+  { name: "Machi", src: "image/client-logo/machi.webp" },
+  { name: "Nomo", src: "image/client-logo/nomo.webp" },
+  { name: "Patani", src: "image/client-logo/patani.webp" },
+  { name: "Portee", src: "image/client-logo/portee.webp" },
+  { name: "Uncle D", src: "image/client-logo/uncle_d.webp" }
+];
 let testimonials = [
   { id: 1, name: "Andi Wijaya", role: "Founder Lumina Interior", content: "Dulu saya cuma tahu omset naik tapi kas kok kosong. Setelah didampingi ORE, saya baru paham struktur biaya saya yang berantakan. Sekarang saya ambil keputusan pakai data, bukan feeling lagi." },
   { id: 2, name: "Siska Pratama", role: "Owner Hayra Fashion", content: "ORE bukan sekadar rapihin laporan. Mereka seperti mentor yang bantu saya simulasikan skenario bisnis sebelum saya buka cabang kedua. Sangat krusial untuk owner UMKM yang mau scale up." },
@@ -381,7 +401,11 @@ function closeMobileMenu() {
 
 // ===== RENDER FUNCTIONS =====
 function renderBrands() {
-  document.getElementById('brandCloud').innerHTML = brands.map(b => `<span class="text-xl font-bold tracking-tight text-[#101828]">${b}</span>`).join('');
+  document.getElementById('brandCloud').innerHTML = brands.map(b => `
+    <div class="flex items-center justify-center px-3 py-2" title="${b.name}">
+      <img src="${b.src}" alt="${b.name}" class="h-12 md:h-14 w-auto object-contain" loading="lazy" />
+    </div>
+  `).join('');
 }
 
 function renderTestimonials() {
@@ -552,7 +576,7 @@ function renderAdminContent() {
     <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
       <ul class="space-y-3">${brands.map((b,i) => `
         <li class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg border border-gray-100">
-          <span class="font-medium text-gray-700">${b}</span>
+          <span class="font-medium text-gray-700">${b.name}</span>
           <button onclick="removeBrand(${i})" class="text-red-500"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
         </li>`).join('')}</ul>
     </div>`;
@@ -610,7 +634,7 @@ function renderAdminContent() {
 }
 
 // Admin CRUD
-function addBrand() { const v = document.getElementById('newBrandInput').value.trim(); if(v) { brands.push(v.toUpperCase()); renderAdminContent(); } }
+function addBrand() { const v = document.getElementById('newBrandInput').value.trim(); if(v) { brands.push({ name: v, src: '' }); renderAdminContent(); } }
 function removeBrand(i) { brands.splice(i, 1); renderAdminContent(); }
 function addImage() { const v = document.getElementById('newImageInput').value.trim(); if(v) { carouselImages.push(v); renderAdminContent(); } }
 function removeImage(i) { carouselImages.splice(i, 1); renderAdminContent(); }
