@@ -90,7 +90,7 @@
           <div class="relative mt-12 lg:mt-0 w-full flex justify-center lg:justify-end">
             <div class="relative w-full max-w-[500px]">
               <div class="absolute inset-0 bg-emerald-100 rounded-full blur-[80px] opacity-60 transform scale-110"></div>
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Ilustrasi Data Analitik Bisnis" class="w-full h-auto rounded-2xl shadow-2xl object-cover border border-white/50 relative z-10" style="aspect-ratio:4/3" />
+              <img src="image/konsultasi1.webp" alt="Ilustrasi Data Analitik Bisnis" class="w-full h-auto rounded-2xl shadow-2xl object-cover border border-white/50 relative z-10" style="aspect-ratio:4/3" />
               <div class="absolute top-10 -left-6 bg-white px-5 py-4 rounded-xl shadow-xl border border-gray-100 z-20 flex flex-col items-center animate-bounce-gentle">
                 <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-2">Laba Bisnis</p>
                 <div class="flex items-end space-x-1">
@@ -322,14 +322,14 @@ let brands = [
   { name: "Uncle D", src: "image/client-logo/uncle_d.webp" }
 ];
 let testimonials = [
-  { id: 1, name: "Andi Wijaya", role: "Founder Lumina Interior", content: "Dulu saya cuma tahu omset naik tapi kas kok kosong. Setelah didampingi ORE, saya baru paham struktur biaya saya yang berantakan. Sekarang saya ambil keputusan pakai data, bukan feeling lagi." },
-  { id: 2, name: "Siska Pratama", role: "Owner Hayra Fashion", content: "ORE bukan sekadar rapihin laporan. Mereka seperti mentor yang bantu saya simulasikan skenario bisnis sebelum saya buka cabang kedua. Sangat krusial untuk owner UMKM yang mau scale up." },
-  { id: 3, name: "Budi Santoso", role: "CEO Sentra Logistik", content: "Proses Cleanup-nya gila sih. Angka yang tadinya saya nggak ngerti, jadi bisa dibaca dengan gampang. Memberikan ketenangan banget buat saya sebagai owner." }
+  { id: 1, name: "Gunan", role: "Founder & Owner - Portee Goods", content: "Awalnya kendala saya sebagai seorang pengusaha yg otodidak dan berjalan dengan bootstrapping itu di perkiraan availability cash perusahaan, utamanya untuk funding project2 artikel baru maupun untuk marketing. Selain itu saya juga ada kendala di divisi produksi yang sering terhambat karena material yg diperlukan untuk produksi sering kosong di inventory. Tim ORE ngebantu ngebuatin dashboard projection,sales dan inventory yang detail dan terkoneksi buat memecahkan masalah tadi. Jadi enak banget mau gerak bikin produk baru atau launching campaign marketing tinggal liat dashboard aja,dan masalah produksi juga jadi ga pernah terjadi lagi." },
+  { id: 2, name: "Aulia", role: "Founder & Owner - Binar", content: "Setelah bertahun-tahun menjalani bisnis, rasanya pengen banget melakukan analisa mendalam untuk mengetahui bisnis aku growth ga sih? “Is it worth it to move forward or not?”. Dan analisa mendalam ini aku peroleh dari ORE. Hasilnya aku jadi lebih tau strategi apa yang harus dilakukan, bagian mana yang harus dibenahi, dan jadi jauh lebih optimis untuk membangun bisnis aku. Thanks ORE untuk bisnis Coaching-nya ❤️" },
+  { id: 3, name: "Hendy Windardy", role: "Founder - BIJI", content: "ORE udah ngebantu memperbaiki set-up pencatatan keuangan bisnis saya, sehingga saya jadi tau bagaimana mengefisienkan pengeluaran bisnis yang pada akhirnya meningkatkan performa bisnis saya." }
 ];
 let carouselImages = [
-  "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1000",
-  "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&q=80&w=1000",
-  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1000"
+  "image/konsultasi1.webp",
+  "image/konsultasi2.webp",
+  "image/presentasi1.webp"
 ];
 let blogs = [
   { id: 1, title: "3 Kesalahan Cashflow yang Sering Membunuh UMKM", excerpt: "Banyak bisnis mati bukan karena kurang pembeli, tapi karena kehabisan napas kas akibat salah mengelola piutang...", date: "24 Okt 2024" },
@@ -337,11 +337,11 @@ let blogs = [
 ];
 
 const monthlyData = [
-  { title: "Bisnis Retail Perdagangan", painPoint: "Tanpa pendampingan, uang Anda mati di stok barang (dead stock) dan cashflow macet karena piutang tidak terkelola.", solution: "ORE membantu menganalisa perputaran inventori Anda, melacak arus kas harian, dan memastikan laba ritel Anda cair menjadi cash yang riil.", img: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=800", bgColor: "bg-blue-100" },
-  { title: "Bisnis Food & Beverages (F&B)", painPoint: "Kebocoran HPP (Harga Pokok Penjualan), porsi terbuang (waste), dan biaya operasional yang memakan margin keuntungan.", solution: "Kami merapikan struktur biaya per menu, mengevaluasi efisiensi outlet, dan membantu Anda mengambil keputusan pricing yang aman untuk margin.", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=80&w=800", bgColor: "bg-orange-100" },
-  { title: "Bisnis Produksi Konveksi", painPoint: "Bingung menghitung biaya produksi sebenarnya per artikel pakaian, alat mesin menganggur, dan profit tergerus biaya lembur.", solution: "Kami mendampingi evaluasi COGS (Cost of Goods Sold) secara presisi, menghitung utilitas mesin, dan merencanakan budget produksi bulanan.", img: "https://images.unsplash.com/photo-1558024920-b41e1887dc32?auto=format&fit=crop&q=80&w=800", bgColor: "bg-purple-100" },
-  { title: "Bisnis Produksi Manufaktur", painPoint: "Sulit membedakan antara overhead pabrik dan biaya langsung, sehingga penentuan harga jual pabrik sering meleset dari target laba.", solution: "Pendampingan khusus untuk alokasi biaya manufaktur yang rapi, laporan aset depresiasi, dan evaluasi hasil produksi vs biaya bulanan.", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800", bgColor: "bg-gray-200" },
-  { title: "Bisnis Jasa / Hospitality", painPoint: "Overhead tetap (gaji & sewa) tinggi, sementara revenue berfluktuasi tiap bulan, membuat pemilik panik saat low season.", solution: "Kami membangun sistem break-even point yang jelas, perencanaan cash reserve untuk low season, dan strategi cost control yang adaptif.", img: "https://images.unsplash.com/photo-1556745753-b2904692b3cd?auto=format&fit=crop&q=80&w=800", bgColor: "bg-teal-100" }
+  { title: "Bisnis Retail Perdagangan", painPoint: "Tanpa pendampingan, uang Anda mati di stok barang (dead stock) dan cashflow macet karena piutang tidak terkelola.", solution: "ORE membantu menganalisa perputaran inventori Anda, melacak arus kas harian, dan memastikan laba ritel Anda cair menjadi cash yang riil.", img: "image/alexander-fae-retail-unsplash.webp", bgColor: "bg-blue-100" },
+  { title: "Bisnis Food & Beverages (F&B)", painPoint: "Kebocoran HPP (Harga Pokok Penjualan), porsi terbuang (waste), dan biaya operasional yang memakan margin keuntungan.", solution: "Kami merapikan struktur biaya per menu, mengevaluasi efisiensi outlet, dan membantu Anda mengambil keputusan pricing yang aman untuk margin.", img: "image/l-ys-fc-unsplash.webp", bgColor: "bg-orange-100" },
+  { title: "Bisnis Produksi Konveksi", painPoint: "Bingung menghitung biaya produksi sebenarnya per artikel pakaian, alat mesin menganggur, dan profit tergerus biaya lembur.", solution: "Kami mendampingi evaluasi COGS (Cost of Goods Sold) secara presisi, menghitung utilitas mesin, dan merencanakan budget produksi bulanan.", img: "image/kevin-limbri-gc-unsplash.webp", bgColor: "bg-purple-100" },
+  { title: "Bisnis Produksi Manufaktur", painPoint: "Sulit membedakan antara overhead pabrik dan biaya langsung, sehingga penentuan harga jual pabrik sering meleset dari target laba.", solution: "Pendampingan khusus untuk alokasi biaya manufaktur yang rapi, laporan aset depresiasi, dan evaluasi hasil produksi vs biaya bulanan.", img: "image/arno-senoner-manuf-unsplash.webp", bgColor: "bg-gray-200" },
+  { title: "Bisnis Jasa / Hospitality", painPoint: "Overhead tetap (gaji & sewa) tinggi, sementara revenue berfluktuasi tiap bulan, membuat pemilik panik saat low season.", solution: "Kami membangun sistem break-even point yang jelas, perencanaan cash reserve untuk low season, dan strategi cost control yang adaptif.", img: "image/nur-hamzah-hospitality-unsplash.webp", bgColor: "bg-teal-100" }
 ];
 
 const strategicData = [
