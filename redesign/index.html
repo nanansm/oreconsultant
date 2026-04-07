@@ -246,57 +246,13 @@
         </div>
         <div class="mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <div class="text-[10px] text-gray-400 tracking-widest uppercase font-bold">© 2024 ORE Consultant — Konsultan Keuangan Bisnis UMKM</div>
-          <button onclick="showAdmin()" class="text-xs text-gray-700 hover:text-gray-400 transition-colors">Admin Panel</button>
+
         </div>
       </div>
     </footer>
   </div>
 
-  <!-- ========== ADMIN VIEW ========== -->
-  <div id="adminView" class="hidden min-h-screen bg-gray-50 flex flex-col md:flex-row font-sans">
-    <!-- Sidebar -->
-    <aside class="w-full md:w-64 bg-[#0F0F0F] text-white flex flex-col md:min-h-screen">
-      <div class="p-6 border-b border-gray-800 flex items-center space-x-3">
-        <div class="w-8 h-8 bg-[#1D4ED8] flex items-center justify-center rounded-md font-bold text-white">O</div>
-        <span class="font-bold text-lg tracking-wide">ORE Admin</span>
-      </div>
-      <nav class="flex-1 p-4 flex flex-col space-y-2">
-        <button onclick="setAdminTab('logos')" data-admin-tab="logos" class="admin-tab flex items-center space-x-3 px-4 py-3 rounded-xl transition-all bg-[#1D4ED8] text-white">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-          <span>Logo Client</span>
-        </button>
-        <button onclick="setAdminTab('carousel')" data-admin-tab="carousel" class="admin-tab flex items-center space-x-3 px-4 py-3 rounded-xl transition-all text-gray-400 hover:bg-gray-800">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-          <span>Carousel Foto</span>
-        </button>
-        <button onclick="setAdminTab('testimonials')" data-admin-tab="testimonials" class="admin-tab flex items-center space-x-3 px-4 py-3 rounded-xl transition-all text-gray-400 hover:bg-gray-800">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-          <span>Testimoni</span>
-        </button>
-        <button onclick="setAdminTab('blog')" data-admin-tab="blog" class="admin-tab flex items-center space-x-3 px-4 py-3 rounded-xl transition-all text-gray-400 hover:bg-gray-800">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg>
-          <span>Artikel Blog</span>
-        </button>
-      </nav>
-      <div class="p-4 border-t border-gray-800">
-        <button onclick="showPublic()" class="flex items-center space-x-3 px-4 py-3 text-red-400 hover:bg-red-400/10 rounded-xl transition-all w-full text-left">
-          <svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
-          <span>Kembali ke Web</span>
-        </button>
-      </div>
-    </aside>
-    <!-- Main Content -->
-    <main class="flex-1 p-6 md:p-12 overflow-y-auto">
-      <header class="mb-10">
-        <h1 id="adminTitle" class="text-3xl font-bold text-[#0F0F0F] capitalize">Manajemen logos</h1>
-        <p class="text-gray-500 mt-2">Update konten website publik secara langsung.</p>
-      </header>
-      <div id="adminLogos" class="grid md:grid-cols-2 gap-8"></div>
-      <div id="adminCarousel" class="grid md:grid-cols-2 gap-8 hidden"></div>
-      <div id="adminTestimonials" class="grid lg:grid-cols-2 gap-8 hidden"></div>
-      <div id="adminBlog" class="grid lg:grid-cols-2 gap-8 hidden"></div>
-    </main>
-  </div>
+
 
 <script>
 // ===== DATA =====
@@ -370,7 +326,7 @@ const faqData = [
 let currentTab = 'monthly';
 let activeAccordionIndex = 0;
 let openFaqIndex = null;
-let currentAdminTab = 'logos';
+
 
 // ===== NAVBAR SCROLL =====
 window.addEventListener('scroll', () => {
@@ -533,128 +489,7 @@ function toggleFaq(idx) {
   renderFAQ();
 }
 
-// ===== VIEW SWITCHING =====
-function showAdmin() {
-  document.getElementById('publicView').classList.add('hidden');
-  document.getElementById('adminView').classList.remove('hidden');
-  document.getElementById('navbar').classList.add('hidden');
-  setAdminTab('logos');
-}
 
-function showPublic() {
-  document.getElementById('adminView').classList.add('hidden');
-  document.getElementById('publicView').classList.remove('hidden');
-  document.getElementById('navbar').classList.remove('hidden');
-  renderAll();
-}
-
-// ===== ADMIN =====
-function setAdminTab(tab) {
-  currentAdminTab = tab;
-  const titles = { logos: 'Logo Client', carousel: 'Carousel Foto', testimonials: 'Testimoni', blog: 'Artikel Blog' };
-  document.getElementById('adminTitle').textContent = 'Manajemen ' + titles[tab];
-  ['logos','carousel','testimonials','blog'].forEach(t => {
-    document.getElementById('admin' + t.charAt(0).toUpperCase() + t.slice(1)).classList.toggle('hidden', t !== tab);
-  });
-  document.querySelectorAll('.admin-tab').forEach(btn => {
-    const isActive = btn.dataset.adminTab === tab;
-    btn.className = `admin-tab flex items-center space-x-3 px-4 py-3 rounded-xl transition-all ${isActive ? 'bg-[#1D4ED8] text-white' : 'text-gray-400 hover:bg-gray-800'}`;
-  });
-  renderAdminContent();
-}
-
-function renderAdminContent() {
-  // Logos
-  document.getElementById('adminLogos').innerHTML = `
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-      <h3 class="font-bold text-lg mb-4 text-[#101828]">Tambah Logo Brand</h3>
-      <div class="flex space-x-2">
-        <input id="newBrandInput" type="text" placeholder="Nama Brand" class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#0056D2]" />
-        <button onclick="addBrand()" class="bg-[#0056D2] text-white px-4 py-2 rounded-lg hover:bg-[#0043A7]"><svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-      </div>
-    </div>
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-      <ul class="space-y-3">${brands.map((b,i) => `
-        <li class="flex justify-between items-center bg-gray-50 px-4 py-3 rounded-lg border border-gray-100">
-          <span class="font-medium text-gray-700">${b.name}</span>
-          <button onclick="removeBrand(${i})" class="text-red-500"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
-        </li>`).join('')}</ul>
-    </div>`;
-
-  // Carousel
-  document.getElementById('adminCarousel').innerHTML = `
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-      <h3 class="font-bold text-lg mb-4 text-[#101828]">Tambah Foto</h3>
-      <div class="flex space-x-2">
-        <input id="newImageInput" type="url" placeholder="URL https://..." class="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:border-[#0056D2]" />
-        <button onclick="addImage()" class="bg-[#0056D2] text-white px-4 py-2 rounded-lg"><svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
-      </div>
-    </div>
-    <div class="grid grid-cols-2 gap-4">${carouselImages.map((img,i) => `
-      <div class="relative group rounded-xl overflow-hidden border border-gray-200">
-        <img src="${img}" alt="carousel" class="w-full h-32 object-cover" />
-        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
-          <button onclick="removeImage(${i})" class="bg-red-500 text-white p-2 rounded-full"><svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
-        </div>
-      </div>`).join('')}</div>`;
-
-  // Testimonials
-  document.getElementById('adminTestimonials').innerHTML = `
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-      <div class="space-y-4">
-        <input id="testiName" type="text" placeholder="Nama" class="w-full border rounded-lg px-4 py-2" />
-        <input id="testiRole" type="text" placeholder="Posisi" class="w-full border rounded-lg px-4 py-2" />
-        <textarea id="testiContent" placeholder="Isi..." rows="4" class="w-full border rounded-lg px-4 py-2"></textarea>
-        <button onclick="addTesti()" class="bg-[#101828] text-white px-6 py-3 rounded-xl w-full">Simpan Testimoni</button>
-      </div>
-    </div>
-    <div class="space-y-4">${testimonials.map(t => `
-      <div class="bg-[#F8FAFC] p-5 rounded-2xl relative">
-        <button onclick="removeTesti(${t.id})" class="absolute top-4 right-4 text-red-500"><svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
-        <p class="font-bold">${t.name}</p>
-        <p class="text-xs text-[#0056D2]">${t.role}</p>
-        <p class="text-sm italic mt-2">"${t.content}"</p>
-      </div>`).join('')}</div>`;
-
-  // Blog
-  document.getElementById('adminBlog').innerHTML = `
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-      <div class="space-y-4">
-        <input id="blogTitle" type="text" placeholder="Judul Artikel" class="w-full border rounded-lg px-4 py-2" />
-        <textarea id="blogExcerpt" placeholder="Excerpt..." rows="5" class="w-full border rounded-lg px-4 py-2"></textarea>
-        <button onclick="addBlog()" class="bg-[#101828] text-white px-6 py-3 rounded-xl w-full">Publish</button>
-      </div>
-    </div>
-    <div class="space-y-4">${blogs.map(b => `
-      <div class="bg-[#F8FAFC] p-5 rounded-2xl relative">
-        <button onclick="removeBlog(${b.id})" class="absolute top-4 right-4 text-red-500"><svg class="w-[18px] h-[18px]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg></button>
-        <h4 class="font-bold text-lg">${b.title}</h4>
-        <p class="text-sm">${b.excerpt}</p>
-      </div>`).join('')}</div>`;
-}
-
-// Admin CRUD
-function addBrand() { const v = document.getElementById('newBrandInput').value.trim(); if(v) { brands.push({ name: v, src: '' }); renderAdminContent(); } }
-function removeBrand(i) { brands.splice(i, 1); renderAdminContent(); }
-function addImage() { const v = document.getElementById('newImageInput').value.trim(); if(v) { carouselImages.push(v); renderAdminContent(); } }
-function removeImage(i) { carouselImages.splice(i, 1); renderAdminContent(); }
-function addTesti() {
-  const n = document.getElementById('testiName').value.trim();
-  const r = document.getElementById('testiRole').value.trim();
-  const c = document.getElementById('testiContent').value.trim();
-  if(n && c) { testimonials.push({ id: Date.now(), name: n, role: r, content: c }); renderAdminContent(); }
-}
-function removeTesti(id) { testimonials = testimonials.filter(t => t.id !== id); renderAdminContent(); }
-function addBlog() {
-  const t = document.getElementById('blogTitle').value.trim();
-  const e = document.getElementById('blogExcerpt').value.trim();
-  if(t && e) {
-    const d = new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date());
-    blogs.push({ id: Date.now(), title: t, excerpt: e, date: d });
-    renderAdminContent();
-  }
-}
-function removeBlog(id) { blogs = blogs.filter(b => b.id !== id); renderAdminContent(); }
 
 // ===== RENDER ALL =====
 function renderAll() {
