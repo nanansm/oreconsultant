@@ -304,8 +304,8 @@ let carouselImages = [
   "image/presentasi1.webp"
 ];
 let blogs = [
-  { id: 1, title: "3 Kesalahan Cashflow yang Sering Membunuh UMKM", excerpt: "Banyak bisnis mati bukan karena kurang pembeli, tapi karena kehabisan napas kas akibat salah mengelola piutang...", date: "24 Okt 2024" },
-  { id: 2, title: "Kapan Waktu yang Tepat Untuk Buka Cabang Baru?", excerpt: "Ekspansi tanpa data adalah bunuh diri. Ketahui indikator finansial yang wajib dicek sebelum Anda melakukan ekspansi...", date: "18 Okt 2024" }
+  { id: 3, title: '"Semua Burger Milik Allah" — dan Apa yang Bisa Dipelajari Pelaku Bisnis F&B dari Aldi Taher', excerpt: "Viral itu gratis. Tapi bisnis tetap butuh angka yang sehat. Aldi Taher berhasil mendapat perhatian masif dengan biaya hampir nol — tapi apa yang sebenarnya bisa dipelajari pelaku F&B dari caranya?", date: "Apr 2026", url: "aldi-taher.html" },
+  { id: 4, title: "Ketika Bisnis Bareng Mulai Retak — Bukan dari Pasar, Tapi dari Dalam", excerpt: "Semua orang masuk dengan niat yang sama. Yang bikin retak bukan orangnya — tapi struktur yang tidak pernah disepakati sejak awal.", date: "Apr 2026", url: "bisnis-retak.html" }
 ];
 
 const monthlyData = [
@@ -405,16 +405,22 @@ function renderBlogs() {
   const el = document.getElementById('blogGrid');
   if (!blogs.length) { el.innerHTML = ''; return; }
   el.innerHTML = blogs.map(b => `
-    <div class="bg-[#F8FAFC] p-6 rounded-2xl border border-gray-100 hover:shadow-lg hover:shadow-blue-900/5 hover:border-blue-100 transition-all flex flex-col justify-between group">
+    <div class="bg-[#F8FAFC] p-6 rounded-2xl border border-gray-100 hover:shadow-lg hover:shadow-blue-900/5 hover:border-blue-100 transition-all flex flex-col justify-between group ${b.url ? 'cursor-pointer' : ''}" ${b.url ? `onclick="location.href='${b.url}'"` : ''}>
       <div>
         <span class="text-xs font-bold tracking-widest text-[#0056D2] mb-3 block uppercase">${b.date}</span>
         <h3 class="text-lg font-bold text-[#101828] mb-3 leading-snug group-hover:text-[#0056D2] transition-colors">${b.title}</h3>
         <p class="text-sm text-gray-600 mb-5 leading-relaxed line-clamp-3">${b.excerpt}</p>
       </div>
-      <button class="text-[#0056D2] text-sm font-bold flex items-center space-x-2 group-hover:translate-x-1 transition-transform w-fit">
-        <span>Baca Artikel</span>
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </button>
+      ${b.url
+        ? `<a href="${b.url}" class="text-[#0056D2] text-sm font-bold flex items-center space-x-2 group-hover:translate-x-1 transition-transform w-fit">
+            <span>Baca Artikel</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>`
+        : `<button class="text-[#0056D2] text-sm font-bold flex items-center space-x-2 group-hover:translate-x-1 transition-transform w-fit">
+            <span>Baca Artikel</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>`
+      }
     </div>
   `).join('');
 }

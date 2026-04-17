@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>"Semua Burger Milik Allah" — ORE Consultant Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection { background: #dbeafe; color: #0056D2; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+    .prose-ore h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #101828;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .prose-ore h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #101828;
+      margin-top: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-ore p {
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+      font-size: 1.0625rem;
+    }
+    .prose-ore blockquote {
+      border-left: 4px solid #5468FF;
+      background: #F8FAFF;
+      padding: 1rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 2rem 0;
+      color: #0056D2;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .prose-ore strong {
+      color: #101828;
+      font-weight: 700;
+    }
+    .prose-ore hr {
+      border-color: #E5E7EB;
+      margin: 2.5rem 0;
+    }
+    .stat-card {
+      background: linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%);
+      border: 1px solid #DBEAFE;
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-white font-sans text-[#101828]">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2 group">
+        <div class="w-12 h-12 flex items-center justify-center rounded-sm group-hover:bg-[#0043A7] transition-colors">
+          <img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy">
+        </div>
+        <span class="font-bold text-lg tracking-tight text-[#101828]">ORE <span class="font-light text-gray-500 text-base">Consultant</span></span>
+      </a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html#solusi" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Solusi Layanan</a>
+        <a href="index.html#faq" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">FAQ</a>
+        <a href="index.html#testimoni" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Testimoni</a>
+        <a href="index.html#insights" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Insights</a>
+        <a class="bg-[#101828] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#0056D2] transition-all shadow-sm" href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20ingin%20diskusi%20lebih%20lanjut" target="_blank" rel="noopener">Diskusi Sekarang</a>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-[#101828]">
+        <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 p-6 flex flex-col space-y-4 md:hidden shadow-xl">
+      <a href="index.html#solusi" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">Solusi Layanan</a>
+      <a href="index.html#faq" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">FAQ</a>
+      <a href="index.html#testimoni" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">Testimoni</a>
+      <a href="index.html#insights" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">Insights</a>
+      <a class="bg-[#0056D2] hover:bg-[#0043A7] text-white px-5 py-3 rounded-xl font-semibold text-sm transition-colors" href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20ingin%20diskusi%20lebih%20lanjut" target="_blank" rel="noopener">Diskusi Sekarang</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO AREA ========== -->
+  <section class="pt-28 pb-10 px-6 bg-gradient-to-b from-[#F8FAFC] to-white">
+    <div class="max-w-3xl mx-auto animate-fade-in-up">
+
+      <!-- Breadcrumb -->
+      <div class="flex items-center space-x-2 text-sm text-gray-500 mb-6">
+        <a href="index.html" class="hover:text-[#0056D2] transition-colors">Beranda</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="index.html#insights" class="hover:text-[#0056D2] transition-colors">Insights</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <span class="text-[#0056D2] font-medium">F&B</span>
+      </div>
+
+      <!-- Category Tag -->
+      <div class="flex items-center space-x-3 mb-5">
+        <span class="bg-blue-100 text-[#0056D2] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">F&B Insights</span>
+        <span class="text-gray-400 text-sm">·</span>
+        <span class="text-gray-500 text-sm">8 menit baca</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[#101828] leading-[1.25] tracking-tight mb-5">
+        "Semua Burger Milik Allah" — dan Apa yang Bisa Dipelajari Pelaku Bisnis F&B dari Aldi Taher
+      </h1>
+
+      <!-- Subtitle / Tagline -->
+      <p class="text-lg text-[#5468FF] font-semibold mb-8">
+        Viral itu gratis. Tapi bisnis tetap butuh angka yang sehat.
+      </p>
+
+      <!-- Author & Date -->
+      <div class="flex items-center space-x-3 pb-8 border-b border-gray-200">
+        <div class="w-10 h-10 rounded-full bg-[#101828] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">O</div>
+        <div>
+          <p class="text-sm font-semibold text-[#101828]">ORE Consultant</p>
+          <p class="text-xs text-gray-500">Konsultan Keuangan Bisnis UMKM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ARTICLE BODY ========== -->
+  <article class="px-6 pb-20">
+    <div class="max-w-3xl mx-auto prose-ore">
+
+      <h2>Ketika Seorang Artis Lebih Jujur dari Banyak Pebisnis</h2>
+
+      <p>Di tengah ratusan konten F&B yang diproduksi dengan kamera mahal, lighting profesional, dan strategi konten yang sudah direncanakan berminggu-minggu — seorang artis bernama Aldi Taher muncul dengan cara yang berbeda total.</p>
+
+      <p>Dia <em>download</em> Threads. Lalu mulai berkomentar di postingan orang-orang yang tidak ada hubungannya dengan burger:</p>
+
+      <blockquote>
+        "Aldi's Burger Cempaka Putih, rotinya lembut, dagingnya juicy — Mahalini, Rizky Febian bisa beli online."
+      </blockquote>
+
+      <p>Tidak ada agency. Tidak ada strategi konten. Tidak ada KPI bulanan.</p>
+
+      <p>Hanya satu alasan yang dia sebut sendiri dengan jujur: <strong>BU. Butuh uang.</strong></p>
+
+      <p>Dan kejujuran itulah yang membuat seluruh Indonesia memperhatikan.</p>
+
+      <hr>
+
+      <h2>Apa yang Sebenarnya Terjadi</h2>
+
+      <p>Aldi Taher membuka gerai burger kecil di Cempaka Putih. Bukan konsep besar, bukan franchise. Gerai sederhana yang perlu pelanggan.</p>
+
+      <p>Yang membuatnya berbeda bukan produknya — tapi caranya mempromosikan diri. Ia masuk ke kolom komentar konten orang lain, menyebut nama artis secara acak, dan berbicara tentang burgernya seolah itu percakapan biasa. Aneh? Ya. Tapi justru itu yang membuatnya tidak bisa diabaikan.</p>
+
+      <p>Ketika gerainya tutup saat Lebaran dan ada pelanggan yang datang, ia tidak sekadar minta maaf dan menyuruh mereka pulang. Ia merekomendasikan Burger Bangor, Burger King, dan brand lain. Ia bahkan foto di gerai Burger King dan menyebutnya <em>"sepupunya Aldi's Burger."</em></p>
+
+      <p>Burger King akhirnya merespons. Mereka ikut mempromosikan balik.</p>
+
+      <p>Satu kalimat yang kemudian lahir dari keseluruhan episode ini menjadi kutipan yang beredar luas:</p>
+
+      <blockquote>
+        "Semua burger milik Allah."
+      </blockquote>
+
+      <hr>
+
+      <h2>Mengapa Ini Viral — dan Apa yang Sebenarnya Sedang Terjadi</h2>
+
+      <p>Banyak orang menyimpulkan bahwa Aldi Taher berhasil karena lucu, atau karena kebetulan. Tapi ada mekanisme yang lebih dalam di sini.</p>
+
+      <h3>1. Keaslian yang tidak bisa dibuat-buat</h3>
+      <p>Orang sudah terlalu sering melihat konten promosi yang didesain untuk tampak "autentik." Mereka tahu bedanya. Ketika seseorang berbicara dengan cara yang benar-benar tidak terfilter — mengakui bahwa ia butuh uang, merekomendasikan kompetitor, dan tidak mencoba terlihat keren — otak kita berhenti sejenak. Ini tidak biasa.</p>
+
+      <h3>2. Perilaku yang melanggar ekspektasi</h3>
+      <p>Dalam dunia bisnis, tidak ada yang merekomendasikan kompetitornya. Tidak ada yang foto di gerai orang lain sambil menyebutnya "keluarga." Ketika seseorang melakukan hal yang bertolak belakang dari ekspektasi, perhatian mengalir ke arahnya secara otomatis.</p>
+
+      <h3>3. Tidak ada yang bisa diserang</h3>
+      <p>Aldi Taher tidak menyerang siapapun. Ia bahkan tidak membandingkan diri dengan siapapun secara negatif. Ia hanya hadir — dengan cara yang tidak bisa diprediksi. Ini membuat kontennya aman untuk dibagikan oleh siapapun, dari berbagai perspektif.</p>
+
+      <blockquote>
+        Virality bukan soal anggaran. Ia soal menciptakan momen yang tidak bisa diabaikan dan tidak bisa diserang.
+      </blockquote>
+
+      <hr>
+
+      <h2>Melihat Pasar Burger Indonesia Secara Lebih Serius</h2>
+
+      <p>Sebelum kamu terinspirasi membuka bisnis burger karena melihat ini, ada baiknya memahami struktur pasarnya terlebih dahulu.</p>
+
+      <!-- Tier Cards -->
+      <div class="grid md:grid-cols-3 gap-4 my-8 not-prose">
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white">
+          <div class="w-9 h-9 rounded-lg bg-yellow-100 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3l14 9-14 9V3z"/></svg>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Tier Atas</p>
+          <p class="font-bold text-[#101828] mb-1">Brand Global</p>
+          <p class="text-sm text-gray-500">McDonald's, BK, Wendy's<br>Rp 45.000 – 80.000+</p>
+          <p class="text-xs text-gray-400 mt-2">Menjual konsistensi & brand experience. Modal masuk sangat besar.</p>
+        </div>
+        <div class="border-2 border-[#5468FF] rounded-2xl p-5 bg-blue-50/50 relative">
+          <span class="absolute -top-3 left-4 bg-[#5468FF] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">Paling Berisiko</span>
+          <div class="w-9 h-9 rounded-lg bg-blue-100 flex items-center justify-center mb-3 mt-1">
+            <svg class="w-5 h-5 text-[#0056D2]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-[#0056D2] mb-1">Tier Menengah</p>
+          <p class="font-bold text-[#101828] mb-1">Brand Lokal</p>
+          <p class="text-sm text-gray-600">Termasuk Aldi's Burger<br>Rp 25.000 – 50.000</p>
+          <p class="text-xs text-[#0056D2] font-medium mt-2">Di sini tekanan paling besar — dua arah sekaligus.</p>
+        </div>
+        <div class="border border-gray-200 rounded-2xl p-5 bg-white">
+          <div class="w-9 h-9 rounded-lg bg-green-100 flex items-center justify-center mb-3">
+            <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v18H3z"/></svg>
+          </div>
+          <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-1">Tier Bawah</p>
+          <p class="font-bold text-[#101828] mb-1">Gerobak & Warung</p>
+          <p class="text-sm text-gray-500">Rp 10.000 – 20.000</p>
+          <p class="text-xs text-gray-400 mt-2">Volume tinggi, margin tipis. Hidup dari lokasi dan kebiasaan.</p>
+        </div>
+      </div>
+
+      <p><strong>Segmen menengah bukan berarti aman di tengah. Ia justru berada di titik tekanan paling besar</strong> — bersaing dua arah: melawan persepsi "terlalu mahal" dari bawah, dan "kenapa tidak beli yang bermerek saja" dari atas.</p>
+
+      <hr>
+
+      <h2>Simulasi Keuangan: Mengapa Bisnis Burger Lebih Sulit dari yang Terlihat</h2>
+
+      <p>Mari bicara angka — karena di sinilah banyak calon pelaku usaha F&B salah kalkulasi.</p>
+
+      <!-- Simulation Box -->
+      <div class="bg-[#101828] rounded-2xl p-6 md:p-8 my-8 not-prose text-white">
+        <p class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-4">Simulasi · Harga Jual Rp 35.000 / burger</p>
+        <div class="space-y-3">
+          <div class="flex justify-between items-center py-3 border-b border-white/10">
+            <span class="text-gray-300 text-sm">Harga Jual</span>
+            <span class="font-bold text-white">Rp 35.000</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-white/10">
+            <span class="text-gray-300 text-sm">Food Cost (30–35%)</span>
+            <span class="font-bold text-red-400">− Rp 10.500 – 12.250</span>
+          </div>
+          <div class="flex justify-between items-center py-3 border-b border-white/10">
+            <span class="text-gray-300 text-sm">Gross Profit per Burger</span>
+            <span class="font-bold text-green-400">Rp 22.750 – 24.500</span>
+          </div>
+          <div class="pt-2">
+            <p class="text-xs text-gray-400 mb-3">Setelah biaya operasional masuk:</p>
+            <div class="grid grid-cols-2 gap-2 text-sm">
+              <div class="bg-white/5 rounded-lg p-3">
+                <p class="text-gray-400 text-xs mb-1">Sewa Lokasi</p>
+                <p class="font-semibold text-white">Rp 5 – 15 jt/bln</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-3">
+                <p class="text-gray-400 text-xs mb-1">Tenaga Kerja</p>
+                <p class="font-semibold text-white">Rp 6 – 10 jt/bln</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-3">
+                <p class="text-gray-400 text-xs mb-1">Komisi GoFood/Grab</p>
+                <p class="font-semibold text-red-400">20 – 30% terpotong</p>
+              </div>
+              <div class="bg-white/5 rounded-lg p-3">
+                <p class="text-gray-400 text-xs mb-1">Food Waste + Ops</p>
+                <p class="font-semibold text-white">Sering tidak dihitung</p>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-between items-center pt-4 mt-2 border-t border-white/20">
+            <span class="text-gray-300 font-semibold">Net Margin Realistis</span>
+            <span class="font-extrabold text-[#5468FF] text-lg">8 – 12%</span>
+          </div>
+        </div>
+      </div>
+
+      <blockquote>
+        Bisnis F&B itu seringkali terlihat ramai tapi terasa sepi di rekening bank. Itu bukan nasib — itu kurangnya struktur keuangan.
+      </blockquote>
+
+      <hr>
+
+      <h2>Apa yang Sebenarnya Perlu Dipelajari dari Aldi Taher</h2>
+
+      <p>Poin pentingnya bukan: <em>"Jadilah unik seperti Aldi Taher."</em></p>
+
+      <p>Karena strategi Aldi Taher tidak bisa direplikasi. Ia berhasil justru karena ia tidak mencoba menjadi apa pun selain dirinya sendiri — dan itu tidak bisa ditiru.</p>
+
+      <p>Yang bisa dipelajari adalah tiga hal yang lebih fundamental:</p>
+
+      <!-- Key Lessons -->
+      <div class="space-y-4 my-8 not-prose">
+        <div class="flex items-start space-x-4 p-5 bg-white border border-gray-200 rounded-2xl hover:border-[#5468FF]/40 hover:shadow-sm transition-all">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 font-extrabold text-[#0056D2]">1</div>
+          <div>
+            <p class="font-bold text-[#101828] mb-1">Perhatian adalah modal — tapi tidak bertahan lama sendiri</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Aldi Taher berhasil mendapatkan perhatian masif dengan biaya hampir nol. Tapi perhatian tanpa produk yang konsisten dan operasional yang siap hanya akan menciptakan lonjakan sesaat. Pertanyaan yang lebih penting: setelah orang datang, apa yang membuat mereka kembali?</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-5 bg-white border border-gray-200 rounded-2xl hover:border-[#5468FF]/40 hover:shadow-sm transition-all">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 font-extrabold text-[#0056D2]">2</div>
+          <div>
+            <p class="font-bold text-[#101828] mb-1">Positioning bukan soal siapa kamu, tapi apa yang kamu perjuangkan</p>
+            <p class="text-sm text-gray-600 leading-relaxed">"Semua burger milik Allah" bukan sekadar kalimat lucu. Ia mencerminkan sikap bisnis yang tidak defensif, tidak egois, dan tidak merasa perlu mengecilkan orang lain untuk terlihat besar. Itu adalah positioning yang kuat — bahkan jika lahir dari kejujuran, bukan strategi.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-5 bg-white border border-gray-200 rounded-2xl hover:border-[#5468FF]/40 hover:shadow-sm transition-all">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center flex-shrink-0 font-extrabold text-[#0056D2]">3</div>
+          <div>
+            <p class="font-bold text-[#101828] mb-1">Viralitas tidak menggantikan kesehatan keuangan</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Gerai yang ramai bukan berarti bisnis yang sehat. Banyak pelaku usaha F&B yang pernah viral, kemudian tutup dua belas bulan kemudian — bukan karena produknya buruk, tapi karena struktur biayanya tidak pernah dihitung dengan benar sejak awal.</p>
+          </div>
+        </div>
+      </div>
+
+      <blockquote>
+        Viral membawa orang ke pintu. Tapi struktur bisnis yang sehat yang menentukan apakah pintu itu bisa tetap terbuka.
+      </blockquote>
+
+      <hr>
+
+      <h2>Satu Pertanyaan yang Perlu Kamu Jawab</h2>
+
+      <p>Kalau kamu sedang mempertimbangkan masuk ke bisnis burger — atau usaha F&B apapun — pertanyaan yang paling penting bukan:</p>
+
+      <p><em>"Bagaimana supaya bisnis saya bisa viral?"</em></p>
+
+      <p>Tapi:</p>
+
+      <blockquote>
+        "Berapa net margin yang saya butuhkan untuk bertahan, dan apakah struktur biaya saya mendukung itu?"
+      </blockquote>
+
+      <p>Aldi Taher mengajarkan kita bahwa perhatian bisa didapat dengan cara yang tidak terduga. Tapi bisnis yang bertahan bukan karena viral — ia bertahan karena angka-angkanya masuk akal, dan keputusannya diambil dengan kepala dingin.</p>
+
+      <p>Itulah perbedaan antara membuka usaha dan membangun bisnis.</p>
+
+    </div>
+  </article>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="bg-gradient-to-br from-[#101828] to-[#1D2D50] py-16 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-[#5468FF] text-sm font-bold uppercase tracking-widest mb-3">ORE Consultant</p>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">
+        Pastikan bisnis F&B kamu punya angka yang masuk akal
+      </h2>
+      <p class="text-gray-400 mb-8 leading-relaxed">
+        ORE Consultant bekerja bersama pelaku usaha F&B untuk memastikan keputusan diambil berdasarkan data, bukan euforia. Dari simulasi margin hingga perencanaan keuangan operasional — kami bantu kamu melihat angka yang sebenarnya.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+        <a class="bg-[#5468FF] text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-[#4355E6] transition-all flex items-center justify-center space-x-2 shadow-sm"
+          href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20baca%20artikel%20Aldi%20Taher%20dan%20ingin%20diskusi%20soal%20bisnis%20F%26B%20saya"
+          target="_blank" rel="noopener">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm0 21.905c-1.782 0-3.52-.48-5.05-1.385l-.362-.214-3.754.985.996-3.664-.235-.374a9.86 9.86 0 01-1.51-5.222c0-5.454 4.44-9.894 9.894-9.894 5.455 0 9.895 4.44 9.895 9.894 0 5.454-4.44 9.894-9.895 9.894zm5.422-7.406c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/></svg>
+          <span>Diskusi via WhatsApp</span>
+        </a>
+        <a class="border border-white/20 text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-white/10 transition-all text-center"
+          href="index.html">
+          Kembali ke Beranda
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-gray-200 px-6 bg-[#101828] text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 flex items-center justify-center rounded-sm"><img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy"></div>
+          <span class="font-bold text-lg text-white tracking-tight">ORE <span class="font-light text-gray-400">Consultant</span></span>
+        </div>
+        <div class="flex space-x-6 text-sm text-gray-400">
+          <a href="https://www.linkedin.com/company/ore-consultant/posts/?feedView=all" class="hover:text-white transition-colors" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/oreconsultant.id/" class="hover:text-white transition-colors" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-[10px] text-gray-400 tracking-widest uppercase font-bold">© 2026 ORE Consultant — Konsultan Keuangan Bisnis UMKM</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 20) {
+        nav.classList.remove('bg-transparent', 'py-5');
+        nav.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-3');
+      } else {
+        nav.classList.add('bg-transparent', 'py-5');
+        nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-3');
+      }
+    });
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      const open = document.getElementById('menuIconOpen');
+      const close = document.getElementById('menuIconClose');
+      menu.classList.toggle('hidden');
+      open.classList.toggle('hidden');
+      close.classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+      document.getElementById('menuIconOpen').classList.remove('hidden');
+      document.getElementById('menuIconClose').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
