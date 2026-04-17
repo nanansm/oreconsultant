@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ketika Bisnis Bareng Mulai Retak — ORE Consultant Insights</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <style>
+    ::selection { background: #dbeafe; color: #0056D2; }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fade-in-up { animation: fadeInUp 0.5s ease-out forwards; }
+    .prose-ore h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #101828;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+    .prose-ore h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #101828;
+      margin-top: 1.75rem;
+      margin-bottom: 0.5rem;
+    }
+    .prose-ore p {
+      color: #374151;
+      line-height: 1.85;
+      margin-bottom: 1.25rem;
+      font-size: 1.0625rem;
+    }
+    .prose-ore blockquote {
+      border-left: 4px solid #5468FF;
+      background: #F8FAFF;
+      padding: 1rem 1.5rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      margin: 2rem 0;
+      color: #0056D2;
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+    .prose-ore strong {
+      color: #101828;
+      font-weight: 700;
+    }
+    .prose-ore hr {
+      border-color: #E5E7EB;
+      margin: 2.5rem 0;
+    }
+    .prose-ore em {
+      color: #4B5563;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-white font-sans text-[#101828]">
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-2 group">
+        <div class="w-12 h-12 flex items-center justify-center rounded-sm group-hover:bg-[#0043A7] transition-colors">
+          <img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy">
+        </div>
+        <span class="font-bold text-lg tracking-tight text-[#101828]">ORE <span class="font-light text-gray-500 text-base">Consultant</span></span>
+      </a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="index.html#solusi" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Solusi Layanan</a>
+        <a href="index.html#faq" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">FAQ</a>
+        <a href="index.html#testimoni" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Testimoni</a>
+        <a href="index.html#insights" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Insights</a>
+        <a class="bg-[#101828] text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-[#0056D2] transition-all shadow-sm" href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20ingin%20diskusi%20lebih%20lanjut" target="_blank" rel="noopener">Diskusi Sekarang</a>
+      </div>
+      <button id="mobileMenuBtn" class="md:hidden text-[#101828]">
+        <svg id="menuIconOpen" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="menuIconClose" class="w-5 h-5 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 p-6 flex flex-col space-y-4 md:hidden shadow-xl">
+      <a href="index.html#solusi" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">Solusi Layanan</a>
+      <a href="index.html#faq" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">FAQ</a>
+      <a href="index.html#testimoni" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">Testimoni</a>
+      <a href="index.html#insights" class="text-base font-medium text-gray-800 hover:text-[#0056D2]" onclick="closeMobileMenu()">Insights</a>
+      <a class="bg-[#0056D2] hover:bg-[#0043A7] text-white px-5 py-3 rounded-xl font-semibold text-sm transition-colors" href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20ingin%20diskusi%20lebih%20lanjut" target="_blank" rel="noopener">Diskusi Sekarang</a>
+    </div>
+  </nav>
+
+  <!-- ========== HERO AREA ========== -->
+  <section class="pt-28 pb-10 px-6 bg-gradient-to-b from-[#F8FAFC] to-white">
+    <div class="max-w-3xl mx-auto animate-fade-in-up">
+
+      <!-- Breadcrumb -->
+      <div class="flex items-center space-x-2 text-sm text-gray-500 mb-6">
+        <a href="index.html" class="hover:text-[#0056D2] transition-colors">Beranda</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <a href="index.html#insights" class="hover:text-[#0056D2] transition-colors">Insights</a>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        <span class="text-[#0056D2] font-medium">Partnership</span>
+      </div>
+
+      <!-- Category Tag -->
+      <div class="flex items-center space-x-3 mb-5">
+        <span class="bg-blue-100 text-[#0056D2] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Partnership & Struktur</span>
+        <span class="text-gray-400 text-sm">·</span>
+        <span class="text-gray-500 text-sm">6 menit baca</span>
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-3xl md:text-4xl font-extrabold text-[#101828] leading-[1.25] tracking-tight mb-5">
+        Ketika Bisnis Bareng Mulai Retak — Bukan dari Pasar, Tapi dari Dalam
+      </h1>
+
+      <!-- Subtitle / Tagline -->
+      <p class="text-lg text-[#5468FF] font-semibold mb-8">
+        Semua orang masuk dengan niat yang sama. Yang bikin retak bukan orangnya — tapi struktur yang tidak pernah disepakati.
+      </p>
+
+      <!-- Author & Date -->
+      <div class="flex items-center space-x-3 pb-8 border-b border-gray-200">
+        <div class="w-10 h-10 rounded-full bg-[#101828] flex items-center justify-center text-white font-bold text-sm flex-shrink-0">O</div>
+        <div>
+          <p class="text-sm font-semibold text-[#101828]">ORE Consultant</p>
+          <p class="text-xs text-gray-500">Konsultan Keuangan Bisnis UMKM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ARTICLE BODY ========== -->
+  <article class="px-6 pb-20">
+    <div class="max-w-3xl mx-auto prose-ore">
+
+      <h2>Awalnya Terasa Mudah</h2>
+
+      <p>Kamu dan satu atau dua orang lainnya punya visi yang sama. Ada yang bawa uang. Ada yang bawa alat. Ada yang bawa jaringan. Ada yang bawa waktu penuh.</p>
+
+      <p>Semuanya terasa lengkap.</p>
+
+      <p>Dan karena semuanya terasa lengkap, muncullah keputusan yang paling umum di antara para founder awal: <em>"Jalanin dulu aja. Nanti juga kelar sendiri."</em></p>
+
+      <p>Bisnis pun dimulai. Dan memang — ia berjalan.</p>
+
+      <hr>
+
+      <h2>Bulan Pertama Sampai Bulan Ketiga</h2>
+
+      <p>Di bulan pertama, semua orang bersemangat. Keputusan dibuat cepat. Komunikasi terasa lancar. Tidak ada yang mempertanyakan apa pun karena semuanya masih terasa baru dan penuh kemungkinan.</p>
+
+      <p>Di bulan ketiga, mulai muncul pertanyaan-pertanyaan kecil. Pertanyaan yang dijawab cepat, lalu dilupakan. Karena bisnis masih berjalan, pertanyaan itu terasa tidak mendesak.</p>
+
+      <p>Yang tidak disadari: pertanyaan kecil yang tidak dijawab tidak hilang. Ia menumpuk.</p>
+
+      <hr>
+
+      <h2>Bulan Keenam: Pertanyaan Itu Mulai Punya Nada</h2>
+
+      <p>Di titik inilah dinamikanya berubah.</p>
+
+      <p>Pertanyaan yang dulu diajukan dengan santai, kini terdengar berbeda:</p>
+
+      <!-- Dialog box -->
+      <div class="bg-[#F8FAFC] border border-gray-200 rounded-2xl p-6 my-6 space-y-3 not-prose">
+        <div class="flex items-start space-x-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-[#5468FF] mt-2.5 flex-shrink-0"></div>
+          <p class="text-gray-700 font-medium italic text-base">"Emang kita bagi hasilnya dihitung dari mana?"</p>
+        </div>
+        <div class="flex items-start space-x-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-[#5468FF] mt-2.5 flex-shrink-0"></div>
+          <p class="text-gray-700 font-medium italic text-base">"Kalau ada keputusan besar, siapa yang pegang?"</p>
+        </div>
+        <div class="flex items-start space-x-3">
+          <div class="w-1.5 h-1.5 rounded-full bg-[#5468FF] mt-2.5 flex-shrink-0"></div>
+          <p class="text-gray-700 font-medium italic text-base">"Kalau salah satu dari kita mau keluar suatu hari nanti — gimana mekanismenya?"</p>
+        </div>
+      </div>
+
+      <p>Pertanyaan-pertanyaan ini bukan pertanda buruk. Justru wajar. Tapi yang menjadi masalah adalah: tidak ada jawaban resmi yang pernah disepakati. Yang ada hanya asumsi masing-masing — dan setiap orang memegang versi yang berbeda.</p>
+
+      <p>Di sinilah bisnis bareng mulai retak.</p>
+
+      <hr>
+
+      <h2>Akar Masalahnya Bukan di Orang — Tapi di Struktur</h2>
+
+      <p>Banyak founder menyimpulkan bahwa konflik bisnis terjadi karena orangnya berubah, atau karena niatnya sejak awal memang tidak lurus.</p>
+
+      <p>Tapi sebagian besar kasus justru sebaliknya.</p>
+
+      <p>Orangnya tidak berubah. Niatnya tidak jelek. Yang berubah adalah <em>konteks</em> — skala bisnis bertumbuh, uang mulai ada, keputusan makin berat — sementara <strong>struktur yang mengatur semuanya tidak pernah dibuat.</strong></p>
+
+      <blockquote>
+        Struktur yang ditunda bukan berarti tidak ada. Ia hanya berubah menjadi asumsi masing-masing pihak. Dan asumsi, tanpa konfirmasi, adalah benih konflik.
+      </blockquote>
+
+      <p>Inilah yang paling sering diabaikan dalam pembagian usaha antar partner: bukan soal siapa yang lebih kompeten atau lebih dipercaya — tapi soal <strong>apa yang sudah disepakati secara tertulis dan eksplisit.</strong></p>
+
+      <hr>
+
+      <h2>Mengapa Ini Terjadi Berulang-Ulang?</h2>
+
+      <p>Ada tiga pola yang hampir selalu muncul dalam konflik bisnis bareng:</p>
+
+      <div class="space-y-4 my-8 not-prose">
+        <div class="flex items-start space-x-4 p-5 bg-white border border-gray-200 rounded-2xl">
+          <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0 font-extrabold text-red-400 text-lg">1</div>
+          <div>
+            <p class="font-bold text-[#101828] mb-1">Kontribusi tidak setara tidak dikonversi ke satuan yang sama</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Uang bisa dihitung. Tapi bagaimana menghitung nilai koneksi yang mendatangkan klien pertama? Bagaimana menilai waktu partner full-time dibanding yang part-time? Tanpa kesepakatan awal, setiap pihak menghitung dengan cara mereka sendiri — dan angkanya tidak pernah sama.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-5 bg-white border border-gray-200 rounded-2xl">
+          <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0 font-extrabold text-red-400 text-lg">2</div>
+          <div>
+            <p class="font-bold text-[#101828] mb-1">Mekanisme pengambilan keputusan tidak pernah didefinisikan</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Siapa yang punya suara lebih besar untuk keputusan strategis? Apakah keputusan operasional harian butuh persetujuan semua pihak? Tanpa jawaban yang jelas, setiap keputusan besar berpotensi menjadi arena negosiasi ulang yang melelahkan.</p>
+          </div>
+        </div>
+        <div class="flex items-start space-x-4 p-5 bg-white border border-gray-200 rounded-2xl">
+          <div class="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0 font-extrabold text-red-400 text-lg">3</div>
+          <div>
+            <p class="font-bold text-[#101828] mb-1">Skenario keluar tidak pernah dibicarakan</p>
+            <p class="text-sm text-gray-600 leading-relaxed">Ini yang paling sering dihindari karena terasa "tidak etis" untuk dibicarakan di awal. Padahal, justru karena belum ada kepentingan yang besar, saat itulah skenario keluar paling mudah disepakati secara adil.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>Yang Perlu Disepakati Sebelum Bisnis Berjalan</h2>
+
+      <p>Ini bukan soal membuat dokumen legal yang rumit. Ini soal menyepakati hal-hal mendasar yang kelak akan menjadi fondasi keputusan.</p>
+
+      <!-- Checklist -->
+      <div class="bg-[#101828] rounded-2xl p-6 md:p-8 my-8 not-prose text-white">
+        <p class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-5">5 Hal yang Harus Didefinisikan Sejak Awal</p>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-4 border-b border-white/10 pb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#5468FF]/20 flex items-center justify-center flex-shrink-0 text-[#5468FF] font-bold text-sm">1</div>
+            <div>
+              <p class="font-bold text-white mb-0.5">Konversi kontribusi</p>
+              <p class="text-sm text-gray-400 leading-relaxed">Semua bentuk kontribusi — uang, aset, waktu, jaringan — perlu dikonversi ke dalam satuan yang disepakati bersama. Ini yang menjadi dasar pembagian kepemilikan dan bagi hasil.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 border-b border-white/10 pb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#5468FF]/20 flex items-center justify-center flex-shrink-0 text-[#5468FF] font-bold text-sm">2</div>
+            <div>
+              <p class="font-bold text-white mb-0.5">Mekanisme pengambilan keputusan</p>
+              <p class="text-sm text-gray-400 leading-relaxed">Tentukan mana keputusan yang bisa diambil sendiri, mana yang butuh mufakat, dan siapa yang punya hak veto jika diperlukan.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 border-b border-white/10 pb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#5468FF]/20 flex items-center justify-center flex-shrink-0 text-[#5468FF] font-bold text-sm">3</div>
+            <div>
+              <p class="font-bold text-white mb-0.5">Hak dan kewajiban masing-masing pihak</p>
+              <p class="text-sm text-gray-400 leading-relaxed">Bukan hanya soal apa yang dibawa — tapi apa yang menjadi tanggung jawab masing-masing ke depannya. Apa yang terjadi jika seseorang tidak bisa memenuhi komitmen itu?</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4 border-b border-white/10 pb-4">
+            <div class="w-8 h-8 rounded-lg bg-[#5468FF]/20 flex items-center justify-center flex-shrink-0 text-[#5468FF] font-bold text-sm">4</div>
+            <div>
+              <p class="font-bold text-white mb-0.5">Skenario perubahan kepemilikan</p>
+              <p class="text-sm text-gray-400 leading-relaxed">Bagaimana jika salah satu partner ingin keluar? Siapa yang berhak membeli porsi tersebut, dengan harga berapa, dan dengan mekanisme apa?</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 rounded-lg bg-[#5468FF]/20 flex items-center justify-center flex-shrink-0 text-[#5468FF] font-bold text-sm">5</div>
+            <div>
+              <p class="font-bold text-white mb-0.5">Pembagian hasil yang jelas</p>
+              <p class="text-sm text-gray-400 leading-relaxed">Apakah pembagian dilakukan dari omzet, laba kotor, atau laba bersih? Kapan dibagikan? Apakah ada bagian yang diputar kembali ke bisnis? Semua ini harus eksplisit — bukan diasumsikan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>Kesepakatan Tertulis Bukan Soal Tidak Percaya</h2>
+
+      <p>Banyak founder enggan membuat perjanjian tertulis karena merasa itu menandakan ketidakpercayaan terhadap partner.</p>
+
+      <p>Justru sebaliknya.</p>
+
+      <p>Kesepakatan tertulis adalah bentuk penghormatan terhadap hubungan itu sendiri. Ia mengatakan: <em>"Kita terlalu serius dengan ini sampai kita tidak mau menyerahkan nasibnya pada ingatan atau asumsi."</em></p>
+
+      <p>Bisnis yang sehat dimulai dari struktur yang jelas — bukan dari kepercayaan yang tidak tertulis.</p>
+
+      <blockquote>
+        Kepercayaan adalah modal sosial. Tapi tanpa struktur, modal sosial itu akan terkikis oleh ambiguitas.
+      </blockquote>
+
+      <hr>
+
+      <h2>Satu Kalimat yang Perlu Kamu Pegang</h2>
+
+      <blockquote>
+        Bukan siapa yang lebih bisa dipercaya yang menentukan ketahanan bisnis bersama — tapi seberapa jelas kesepakatan yang sudah dibuat sejak awal.
+      </blockquote>
+
+      <p>Kalau kamu sedang berada di fase awal membangun bisnis bareng, atau sudah berjalan tapi struktur modalnya masih "nebak-nebak" — ini saat yang tepat untuk duduk bersama dan mulai mendefinisikan fondasi itu.</p>
+
+      <p>Sebelum pertanyaan kecil itu mulai punya nada.</p>
+
+    </div>
+  </article>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="bg-gradient-to-br from-[#101828] to-[#1D2D50] py-16 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-[#5468FF] text-sm font-bold uppercase tracking-widest mb-3">ORE Consultant</p>
+      <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">
+        Bangun fondasi bisnis bersama yang kuat sejak awal
+      </h2>
+      <p class="text-gray-400 mb-8 leading-relaxed">
+        ORE Consultant bekerja bersama para founder dan pemilik bisnis untuk membangun struktur keuangan dan operasional yang jelas — sejak awal, bukan setelah masalah muncul.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
+        <a class="bg-[#5468FF] text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-[#4355E6] transition-all flex items-center justify-center space-x-2 shadow-sm"
+          href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20baca%20artikel%20bisnis%20bareng%20dan%20ingin%20diskusi%20soal%20struktur%20bisnis%20saya"
+          target="_blank" rel="noopener">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 0C5.385 0 0 5.385 0 12.031c0 2.115.553 4.146 1.603 5.945L.013 24l6.182-1.62c1.76.993 3.743 1.516 5.836 1.516 6.646 0 12.031-5.385 12.031-12.031S18.677 0 12.031 0zm0 21.905c-1.782 0-3.52-.48-5.05-1.385l-.362-.214-3.754.985.996-3.664-.235-.374a9.86 9.86 0 01-1.51-5.222c0-5.454 4.44-9.894 9.894-9.894 5.455 0 9.895 4.44 9.895 9.894 0 5.454-4.44 9.894-9.895 9.894zm5.422-7.406c-.297-.149-1.76-.87-2.033-.97-.273-.099-.472-.149-.671.149-.198.298-.768.97-.942 1.169-.174.198-.348.223-.645.074-.298-.149-1.256-.463-2.395-1.48-.886-.791-1.485-1.768-1.659-2.066-.174-.298-.019-.46.13-.608.134-.133.298-.347.447-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.074-.149-.671-1.618-.918-2.214-.241-.58-.485-.502-.671-.51-.174-.008-.372-.008-.57-.008-.198 0-.521.074-.794.372-.273.298-1.042 1.018-1.042 2.482 0 1.464 1.067 2.879 1.216 3.078.149.198 2.097 3.2 5.078 4.487.709.307 1.263.491 1.695.628.712.227 1.36.195 1.871.118.572-.086 1.76-.719 2.008-1.413.248-.694.248-1.289.174-1.413-.074-.124-.273-.198-.57-.347z"/></svg>
+          <span>Diskusi via WhatsApp</span>
+        </a>
+        <a class="border border-white/20 text-white px-6 py-3 rounded-lg text-base font-semibold hover:bg-white/10 transition-all text-center"
+          href="index.html">
+          Kembali ke Beranda
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-gray-200 px-6 bg-[#101828] text-white">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+        <div class="flex items-center space-x-3">
+          <div class="w-12 h-12 flex items-center justify-center rounded-sm"><img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy"></div>
+          <span class="font-bold text-lg text-white tracking-tight">ORE <span class="font-light text-gray-400">Consultant</span></span>
+        </div>
+        <div class="flex space-x-6 text-sm text-gray-400">
+          <a href="https://www.linkedin.com/company/ore-consultant/posts/?feedView=all" class="hover:text-white transition-colors" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/oreconsultant.id/" class="hover:text-white transition-colors" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+      <div class="mt-10 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="text-[10px] text-gray-400 tracking-widest uppercase font-bold">© 2026 ORE Consultant — Konsultan Keuangan Bisnis UMKM</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 20) {
+        nav.classList.remove('bg-transparent', 'py-5');
+        nav.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-3');
+      } else {
+        nav.classList.add('bg-transparent', 'py-5');
+        nav.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-3');
+      }
+    });
+
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      const menu = document.getElementById('mobileMenu');
+      const open = document.getElementById('menuIconOpen');
+      const close = document.getElementById('menuIconClose');
+      menu.classList.toggle('hidden');
+      open.classList.toggle('hidden');
+      close.classList.toggle('hidden');
+    });
+    function closeMobileMenu() {
+      document.getElementById('mobileMenu').classList.add('hidden');
+      document.getElementById('menuIconOpen').classList.remove('hidden');
+      document.getElementById('menuIconClose').classList.add('hidden');
+    }
+  </script>
+
+</body>
+</html>
