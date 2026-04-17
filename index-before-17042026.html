@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ORE Consultant - Landing Page</title>
+
+  <!-- Tailwind Config -->
+  <script>
+    window.tailwind = {
+      config: {
+        theme: {
+          extend: {},
+        },
+      },
+    }
+  </script>
+
+  <!-- Tailwind CSS CDN -->
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <link href="assets/css/tailwind-output.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/revamp.css" />
+  <!-- Meta / favicon -->
+  <meta name="description" content="ORE Consultant - Pendampingan finansial dan rencana bisnis untuk UKM dan usaha lokal" />
+  <meta property="og:title" content="ORE Consultant - Pendampingan Finansial & Bisnis">
+  <meta property="og:description" content="Bantu UKM dan usaha lokal memahami keuangan, menyusun rencana bisnis, dan ekspansi dengan percaya diri.">
+  <meta property="og:image" content="assets/img/ore/preview.webp">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/ore/fav.webp">
+
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy" />
+        <span class="hidden sm:inline-block text-sm font-semibold text-slate-700">ORE Consultant</span>
+      </div>
+
+      <nav aria-label="Main navigation" class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#services" class="hover:text-sky-800 transition">Layanan</a>
+        <a href="#process" class="hover:text-sky-800 transition">Proses</a>
+        <a href="#impact" class="hover:text-sky-800 transition">Dampak</a>
+        <a href="#about" class="hover:text-sky-800 transition">ORE Consultant</a>
+        <a href="#contact" class="ml-2 px-4 py-2 bg-amber-400 text-slate-900 rounded-md text-sm font-semibold hover:bg-amber-300 transition">Jadwalkan Konsultasi</a>
+      </nav>
+
+      <button id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden inline-flex items-center gap-2 px-3 py-2 bg-sky-800 text-white rounded-md">Menu</button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-6 py-4">
+      <div class="flex flex-col gap-3">
+        <a href="#services" class="py-2">Layanan</a>
+        <a href="#process" class="py-2">Proses</a>
+        <a href="#impact" class="py-2">Dampak</a>
+        <a href="#about" class="py-2">ORE Consultant</a>
+        <a href="#contact" class="py-2 px-3 bg-amber-400 text-slate-900 rounded-md inline-block w-max">Jadwalkan Konsultasi</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-6 py-12">
+    <!-- HERO -->
+    <section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      <div class="md:col-span-7">
+        <h1 class="text-3xl md:text-4xl font-extrabold leading-tight text-sky-800">Pahami Keuangan Bisnismu, Atur Strategi, dan Siapkan Langkah untuk Tumbuh</h1>
+        <p class="mt-4 text-slate-600">ORE Consultant bantu owner bisnis seperti kamu — dari brand lokal, cafe, konveksi, hingga retail — untuk mengerti angka keuangan, menyusun rencana bisnis yang terukur, dan menyiapkan strategi ekspansi dengan percaya diri.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#contact" class="inline-flex items-center gap-2 px-5 py-3 bg-amber-400 text-slate-900 font-medium rounded-md shadow hover:bg-amber-300 transition">🚀 Jadwalkan Konsultasi Gratis</a>
+          <a href="#services" class="inline-flex items-center gap-2 px-5 py-3 border border-slate-200 rounded-md hover:border-sky-500 transition">Lihat Layanan</a>
+        </div>
+      </div>
+
+      <div class="md:col-span-5">
+        <div class="rounded-xl bg-white p-6 shadow h-full flex flex-col">
+          <h3 class="font-semibold text-sky-800 mb-3">Pendampingan Finansial & Bisnis</h3>
+          <div class="w-full h-64 bg-gradient-to-br from-slate-100 to-white rounded-xl border border-slate-200 flex items-center justify-center text-slate-400 overflow-hidden">
+            <img loading="lazy" src="assets/img/pexels-tiger-lily-small.webp" alt="Konsultan keuangan profesional membantu bisnis lokal di Indonesia." class="w-full h-full object-cover rounded-xl" />
+          </div>
+          <ul class="mt-4 text-sm space-y-2 text-slate-600">
+            <li>• Membaca laporan keuangan dengan benar</li>
+            <li>• Menyusun rencana bisnis berbasis data</li>
+            <li>• Menentukan kebutuhan modal ekspansi</li>
+          </ul>
+          <div class="mt-4"><a href="#contact" class="text-sky-700 text-sm font-medium hover:underline">Pelajari lebih lanjut →</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAIN POINTS -->
+    <section class="mt-12">
+      <div class="bg-white rounded-xl p-6 shadow">
+        <h3 class="text-xl font-semibold text-sky-800">Tantangan yang Sering Dihadapi Pemilik Bisnis Lokal</h3>
+        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-slate-600">
+          <div class="p-4 border rounded-md bg-slate-100">
+            <h4 class="font-semibold text-sky-800">Omzet naik tapi uang tetap habis</h4>
+            <p class="mt-2 text-sm text-slate-600">Cash flow tetap ketat walau penjualan meningkat.</p>
+          </div>
+          <div class="p-4 border rounded-md bg-slate-100">
+            <h4 class="font-semibold text-sky-800">Belum tahu margin dan modal ideal</h4>
+            <p class="mt-2 text-sm text-slate-600">Sulit menentukan berapa modal aman untuk ekspansi.</p>
+          </div>
+          <div class="p-4 border rounded-md bg-slate-100">
+            <h4 class="font-semibold text-sky-800">Laporan keuangan sulit dipahami</h4>
+            <p class="mt-2 text-sm text-slate-600">Angka-angka ada, tapi tidak tahu artinya untuk bisnis.</p>
+          </div>
+        </div>
+        <div class="mt-6 text-sm text-slate-700">ORE bantu kamu membaca angka bisnis agar setiap keputusan bisa diambil dengan tenang dan berdasarkan data yang jelas.</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="mt-12 bg-white rounded-xl p-6 shadow">
+      <h3 class="text-2xl font-semibold text-sky-800">Tentang ORE Consultant</h3>
+      <p class="mt-4 text-slate-600">ORE Consultant adalah partner keuangan dan bisnis untuk pemilik usaha lokal dan UKM. Kami bantu kamu memahami keuangan usaha secara sederhana tapi strategis, mengajarkan perencanaan keuangan yang terukur, dan menyiapkan rencana bisnis agar usaha lebih efisien, menguntungkan, dan siap berkembang.</p>
+      <p class="mt-2 text-sky-800 font-medium italic">Kami bukan hanya ngasih laporan — kami bantu kamu ngerti arti di balik angkanya.</p>
+    </section>
+
+    <!-- BRAND SLIDER -->
+    <section id="brands" class="mt-12 bg-white rounded-xl p-6 shadow overflow-hidden">
+      <h3 class="text-xl font-semibold text-sky-800 text-center mb-6">Dipercaya oleh Berbagai Brand Lokal</h3>
+      <div class="relative overflow-hidden">
+        <div class="flex items-center gap-12 animate-scroll-x">
+          <img loading="lazy" src="assets/img/ore/client/client1.webp" alt="Brand 1" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client2.webp" alt="Brand 2" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client3.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client4.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client5.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client6.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client7.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client8.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client9.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+          <img loading="lazy" src="assets/img/ore/client/client10.webp" alt="Brand 3" class="h-10 w-auto opacity-70 hover:opacity-100 transition" />
+        <!-- Duplicate for seamless loop -->
+          <img loading="lazy" src="assets/img/ore/client/client1.webp" alt="Brand 1 duplicate" class="h-10 w-auto opacity-70" />
+          <img loading="lazy" src="assets/img/ore/client/client2.webp" alt="Brand 1 duplicate" class="h-10 w-auto opacity-70" />
+          <img loading="lazy" src="assets/img/ore/client/client3.webp" alt="Brand 1 duplicate" class="h-10 w-auto opacity-70" />
+          <img loading="lazy" src="assets/img/ore/client/client4.webp" alt="Brand 1 duplicate" class="h-10 w-auto opacity-70" />
+          <img loading="lazy" src="assets/img/ore/client/client5.webp" alt="Brand 1 duplicate" class="h-10 w-auto opacity-70" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="mt-12">
+      <h3 class="text-2xl font-semibold text-sky-800">Layanan Kami</h3>
+      <p class="text-slate-600 mt-2">Pendampingan untuk owner bisnis — dari konveksi, cafe, brand lokal, sampai retail — agar bisa kelola keuangan dengan lebih cerdas dan siap ekspansi.</p>
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-md transition">
+          <h4 class="font-semibold text-sky-800">Pendampingan Keuangan Bulanan</h4>
+          <ul class="mt-3 text-sm text-slate-600 space-y-2">
+            <li>• Bantu owner memahami kondisi keuangan</li>
+            <li>• Diskusi & rekomendasi bulanan</li>
+            <li>• Evaluasi hasil & arah bisnis</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-md transition">
+          <h4 class="font-semibold text-sky-800">Business Planning & Projection</h4>
+          <ul class="mt-3 text-sm text-slate-600 space-y-2">
+            <li>• Rencana keuangan 6–12 bulan ke depan</li>
+            <li>• Budgeting & proyeksi laba</li>
+            <li>• Simulasi cashflow dan kebutuhan modal</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl p-6 shadow hover:shadow-md transition">
+          <h4 class="font-semibold text-sky-800">Feasibility & Investment Plan</h4>
+          <ul class="mt-3 text-sm text-slate-600 space-y-2">
+            <li>• Simulasi ekspansi cabang/mesin baru</li>
+            <li>• Hitung ROI dan resiko investasi</li>
+            <li>• Buat keputusan ekspansi yang aman</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="mt-12">
+      <div class="bg-white rounded-xl p-6 shadow">
+        <h3 class="text-2xl font-semibold text-sky-800">Bagaimana Proses Kami</h3>
+        <ol class="mt-4 space-y-4 text-slate-600 list-decimal list-inside">
+          <li><strong>Diagnosis Awal</strong> — Review laporan dan pahami kondisi bisnis kamu.</li>
+          <li><strong>Rencana Strategis</strong> — Susun rencana keuangan dan target realistis untuk usaha.</li>
+          <li><strong>Pendampingan Bulanan</strong> — Diskusi rutin untuk evaluasi hasil dan tindakan selanjutnya.</li>
+          <li><strong>Evaluasi & Scale-Up</strong> — Ukur progres dan bantu siapkan langkah ekspansi.</li>
+        </ol>
+        <div class="mt-6 flex gap-3">
+          <a href="#contact" class="px-4 py-2 bg-amber-400 text-slate-900 rounded-md font-medium hover:bg-amber-300 transition">Mulai Konsultasi</a>
+          <a href="#contact" class="px-4 py-2 border rounded-md hover:border-sky-500 transition">Minta Proposal</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="impact" class="mt-12">
+      <h3 class="text-2xl font-semibold text-sky-800">Cerita dari Pemilik Bisnis</h3>
+      <blockquote class="mt-4 p-4 bg-slate-100 rounded-md text-slate-700 italic">“Awalnya kendala saya sebagai seorang pengusaha yg otodidak dan berjalan dengan bootstrapping itu di perkiraan availability cash perusahaan, utamanya untuk funding project2 artikel baru maupun untuk marketing. Selain itu saya juga ada kendala di divisi produksi yang sering terhambat karena material yg diperlukan untuk produksi sering kosong di inventory. Tim ORE ngebantu ngebuatin dashboard projection,sales dan inventory yang detail dan terkoneksi buat memecahkan masalah tadi. Jadi enak banget mau gerak bikin produk baru atau launching campaign marketing tinggal liat dashboard aja,dan masalah produksi juga jadi ga pernah terjadi lagi." — Gunan - Founder & Owner Portee Goods</blockquote>
+      <blockquote class="mt-3 p-4 bg-slate-100 rounded-md text-slate-700 italic">“Setelah bertahun-tahun menjalani bisnis, rasanya pengen banget melakukan analisa mendalam untuk mengetahui bisnis aku growth ga sih? “Is it worth it to move forward or not?”. Dan analisa mendalam ini aku peroleh dari ORE. Hasilnya aku jadi lebih tau strategi apa yang harus dilakukan, bagian mana yang harus dibenahi, dan jadi jauh lebih optimis untuk membangun bisnis aku. Thanks ORE untuk bisnis Coaching-nya ❤️"  — Aulia- Founder & Owner Binar</blockquote>
+      <blockquote class="mt-3 p-4 bg-slate-100 rounded-md text-slate-700 italic">“ORE udah ngebantu memperbaiki set-up pencatatan keuangan bisnis saya, sehingga saya jadi tau bagaimana mengefisienkan pengeluaran bisnis yang pada akhirnya meningkatkan performa bisnis saya."  — Hendy Windardy- Founder BIJI</blockquote>
+    </section>
+
+    <!-- CONTACT CTA -->
+      <section id="contact" class="mt-12 bg-gradient-to-r from-slate-100 to-white rounded-xl p-8 shadow">
+          <div class="max-w-3xl mx-auto text-center">
+              <h3 class="text-2xl font-semibold text-sky-800">Yuk, Kelola Keuangan Bisnismu Lebih Cerdas</h3>
+              <p class="text-slate-600 mt-2">Jadwalkan konsultasi gratis bareng tim ORE — khusus untuk pemilik usaha lokal yang ingin tumbuh lebih sehat dan terukur.</p>
+              <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+                  <a href="https://wa.me/6287784183169?text=Halo%20ORE%2C%20saya%20ingin%20konsultasi%20bisnis."
+                     class="px-6 py-3 bg-green-500 text-white font-medium rounded-md flex items-center justify-center gap-2 hover:bg-green-600 transition"
+                     aria-label="Hubungi ORE via WhatsApp">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-5 h-5">
+                          <path d="M20.52 3.48A11.9 11.9 0 0012 0C5.37 0 .02 5.35 0 12a11.8 11.8 0 001.66 6L0 24l6.26-1.64A12 12 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.21-3.48-8.52zm-8.52 18.05a9.74 9.74 0 01-4.98-1.36l-.36-.21-3.71.97.99-3.62-.24-.38A9.64 9.64 0 012.27 12C2.3 6.77 6.77 2.3 12 2.3c2.59 0 5.03 1.01 6.87 2.85A9.7 9.7 0 0121.7 12c0 5.23-4.47 9.7-9.7 9.7zm5.48-7.26c-.3-.15-1.77-.87-2.04-.97s-.47-.15-.66.15-.76.97-.93 1.16-.34.22-.63.07a7.95 7.95 0 01-2.35-1.44 8.87 8.87 0 01-1.63-2.02c-.17-.3 0-.46.13-.6.13-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.08-.15-.66-1.59-.9-2.18-.24-.58-.48-.5-.66-.51h-.57c-.19 0-.5.07-.76.37s-1 1-1 2.43 1.03 2.82 1.17 3.02 2.04 3.12 4.95 4.38c.69.3 1.23.48 1.65.62.69.22 1.32.19 1.82.11.56-.08 1.77-.72 2.02-1.41.25-.69.25-1.28.17-1.41-.08-.13-.27-.2-.57-.35z"/>
+                      </svg>
+                      WhatsApp Kami
+                  </a>
+
+                  <a href="#" class="px-6 py-3 border rounded-md">🗓️ Request Proposal</a>
+              </div>
+              <p class="text-xs text-slate-500 mt-4">Harga menyesuaikan kebutuhan — ORE akan bantu menilai scope dan solusi terbaik untuk bisnismu.</p>
+          </div>
+      </section>
+
+      <footer class="mt-12 pb-12 text-sm text-slate-600 border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <div>© <span id="year"></span> ORE Consultant — All rights reserved.</div>
+          <div class="flex gap-4">
+              <a href="#" class="hover:underline">Privacy</a>
+              <a href="#" class="hover:underline">Terms</a>
+          </div>
+      </footer>
+  </main>
+
+  <!-- Small JS for interactions (guarded to avoid runtime errors in SSR/builds) -->
+  <script>
+      (function () {
+        if (typeof window === 'undefined') return
+        const yearEl = document.getElementById('year')
+        if (yearEl) yearEl.textContent = new Date().getFullYear()
+
+        const menuToggle = document.getElementById('menu-toggle')
+        const mobileMenu = document.getElementById('mobile-menu')
+        if (!menuToggle || !mobileMenu) return
+
+        menuToggle.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden')
+          const isHidden = mobileMenu.classList.contains('hidden')
+          menuToggle.setAttribute('aria-expanded', String(!isHidden))
+          menuToggle.textContent = isHidden ? 'Menu' : 'Tutup'
+        })
+      })()
+  </script>
+</body>
+</html>
