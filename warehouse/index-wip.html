@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORE Warehousing | Solusi Operasional Gudang</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #101828;
+        }
+        ::selection {
+            background-color: #DBEAFE; /* blue-100 */
+            color: #0056D2;
+        }
+        /* Hide scrollbar for carousel */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-3 group cursor-pointer">
+                <div class="w-12 h-12 flex items-center justify-center rounded-sm"><img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy"></div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-lg tracking-tight text-[#101828] leading-none">
+                        ORE <span class="font-light text-gray-500">Warehousing</span>
+                    </span>
+                    <span class="text-[9px] font-bold text-gray-400 tracking-widest uppercase mt-0.5">Operated by Flow Core</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#masalah" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Masalah Gudang</a>
+                <a href="#layanan" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Layanan Kami</a>
+                <a href="#klien" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">Target Industri</a>
+                <a href="#faq" class="text-sm font-medium text-gray-600 hover:text-[#0056D2] transition-colors">FAQ</a>
+                <button class="bg-[#101828] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#0056D2] transition-all flex items-center space-x-2 shadow-sm">
+                    <span>Bereskan Gudang Anda</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-[#101828]">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-white border-b border-gray-100 p-6 flex flex-col space-y-4 md:hidden shadow-xl">
+            <a href="#masalah" class="mobile-link text-base font-medium text-gray-800 hover:text-[#0056D2]">Masalah Gudang</a>
+            <a href="#layanan" class="mobile-link text-base font-medium text-gray-800 hover:text-[#0056D2]">Layanan Kami</a>
+            <a href="#klien" class="mobile-link text-base font-medium text-gray-800 hover:text-[#0056D2]">Target Industri</a>
+            <a href="#faq" class="mobile-link text-base font-medium text-gray-800 hover:text-[#0056D2]">FAQ</a>
+            <button class="bg-[#0056D2] hover:bg-[#0043A7] text-white px-5 py-3 rounded-xl font-semibold text-sm transition-colors">Bereskan Gudang Anda</button>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="pt-36 pb-20 md:pt-48 md:pb-32 px-6 bg-gradient-to-b from-[#F8FAFC] to-white overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                    
+                    <div class="max-w-xl">
+                        <div class="inline-flex items-center space-x-2 bg-blue-50 text-[#0056D2] px-3 py-1.5 rounded-full text-xs font-bold mb-6 tracking-wide uppercase border border-blue-100">
+                            <i data-lucide="boxes" class="w-4 h-4"></i>
+                            <span>Solusi Operasional Gudang</span>
+                        </div>
+
+                        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#101828] leading-[1.15] tracking-tight mb-6">
+                            Ubah Gudang Kacau Menjadi Rapi & Terstruktur.
+                        </h1>
+                        
+                        <p class="text-xl text-gray-600 leading-relaxed mb-8 font-medium">
+                            Stok berantakan? Karyawan lama mencari barang? Sering salah kirim? Kami bantu tata ulang fisik, sistem, dan alur operasional gudang Anda dari nol.
+                        </p>
+
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start space-x-3 text-gray-700">
+                                <div class="mt-1 flex-shrink-0 text-emerald-500">
+                                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="text-base font-medium leading-relaxed">Rapikan tata letak (layout) gudang agar barang mudah dicari.</span>
+                            </li>
+                            <li class="flex items-start space-x-3 text-gray-700">
+                                <div class="mt-1 flex-shrink-0 text-emerald-500">
+                                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="text-base font-medium leading-relaxed">Cegah selisih stok antara data di komputer dengan fisik asli.</span>
+                            </li>
+                            <li class="flex items-start space-x-3 text-gray-700">
+                                <div class="mt-1 flex-shrink-0 text-emerald-500">
+                                    <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <span class="text-base font-medium leading-relaxed">Percepat proses packing agar orderan tidak menumpuk.</span>
+                            </li>
+                        </ul>
+
+                        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                            <button class="bg-[#0056D2] text-white px-6 py-3.5 rounded-xl text-base font-bold hover:bg-[#0043A7] transition-all flex items-center justify-center space-x-2 shadow-lg shadow-blue-200">
+                                <span>Jadwalkan Survey Gudang</span>
+                                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                            </button>
+                            <a href="#layanan" class="border border-gray-300 text-[#101828] px-6 py-3.5 rounded-xl text-base font-semibold hover:bg-gray-50 transition-all flex items-center justify-center">
+                                Lihat Solusi Kami
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image & Floating UI -->
+                    <div class="relative mt-12 lg:mt-0 w-full flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-[550px]">
+                            <div class="absolute inset-0 bg-blue-100 rounded-full blur-[80px] opacity-60 transform scale-110"></div>
+                            <!--
+                            <img 
+                                src="https://images.unsplash.com/photo-1586528116311-ad8ed7c1590f?auto=format&fit=crop&q=80&w=1000" 
+                                alt="Modern Warehouse Operation" 
+                                class="w-full h-auto rounded-3xl shadow-2xl object-cover border border-white/50 relative z-10 aspect-[4/3]"
+                            />
+                            -->
+                            <img src="../image/markus-winkler-grapichs-unsplash.webp" alt="Ilustrasi Data Analitik Bisnis" class="w-full h-auto rounded-2xl shadow-2xl object-cover border border-white/50 relative z-10" style="aspect-ratio:4/3" />
+                            
+                            <div class="absolute -left-8 top-12 bg-white px-5 py-4 rounded-2xl shadow-xl border border-gray-100 z-20 flex items-center space-x-4 animate-bounce" style="animation-duration: 5s;">
+                                <div class="p-3 bg-red-50 text-red-600 rounded-xl">
+                                    <i data-lucide="search-x" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-1">Status Kehilangan</p>
+                                    <p class="text-lg font-black text-[#101828]">0 Barang</p>
+                                    <p class="text-[10px] text-emerald-500 font-semibold mt-1">Sistem Terkontrol</p>
+                                </div>
+                            </div>
+
+                            <div class="absolute -right-6 bottom-10 bg-white px-5 py-4 rounded-2xl shadow-xl border border-gray-100 z-20">
+                                <p class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Akurasi Stok Fisik</p>
+                                <div class="flex items-center space-x-2">
+                                    <div class="w-32 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                        <div class="w-[99%] h-full bg-blue-600 rounded-full"></div>
+                                    </div>
+                                    <span class="font-bold text-[#101828] text-sm">99.8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section id="masalah" class="py-24 bg-[#0F172A] text-white px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12 items-end mb-20">
+                    <div>
+                        <span class="text-[#60A5FA] font-bold tracking-widest text-xs uppercase mb-3 block">Realita Lapangan</span>
+                        <h2 class="text-3xl md:text-5xl font-extrabold leading-tight tracking-tight">
+                            Orderan Ramai, <br/> Tapi Gudang Makin Kacau?
+                        </h2>
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-400 leading-relaxed font-medium">
+                            Kondisi fisik gudang yang berantakan seringkali menjadi sumber keboncoran operasional. Tim kelelahan bukan karena banyak kerjaan, tapi karena sistemnya yang rumit.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-8 border border-slate-700 bg-slate-800/40 rounded-3xl hover:bg-slate-800 transition-all group">
+                        <div class="text-[#60A5FA] mb-6 bg-slate-900/50 w-fit p-4 rounded-2xl border border-slate-700">
+                            <i data-lucide="boxes" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white">Barang Berantakan & Susah Dicari</h3>
+                        <p class="text-slate-400 leading-relaxed text-sm">Fisik gudang tidak memiliki layout yang jelas. Karyawan menghabiskan waktu berjam-jam hanya untuk mencari barang pesanan.</p>
+                    </div>
+                    <div class="p-8 border border-slate-700 bg-slate-800/40 rounded-3xl hover:bg-slate-800 transition-all group">
+                        <div class="text-[#60A5FA] mb-6 bg-slate-900/50 w-fit p-4 rounded-2xl border border-slate-700">
+                            <i data-lucide="alert-triangle" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white">Selisih Stok Fisik vs Sistem</h3>
+                        <p class="text-slate-400 leading-relaxed text-sm">Di komputer tertulis stok masih ada 10, tapi saat dicari di rak barangnya kosong. Bikin pesanan pelanggan terpaksa di-cancel.</p>
+                    </div>
+                    <div class="p-8 border border-slate-700 bg-slate-800/40 rounded-3xl hover:bg-slate-800 transition-all group">
+                        <div class="text-[#60A5FA] mb-6 bg-slate-900/50 w-fit p-4 rounded-2xl border border-slate-700">
+                            <i data-lucide="package-search" class="w-7 h-7"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-white">Packing Lambat & Sering Salah Kirim</h3>
+                        <p class="text-slate-400 leading-relaxed text-sm">Alur kerja yang berdesakan membuat proses pengemasan lambat. Ujung-ujungnya sering salah kirim dan dapat komplain.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="layanan" class="py-24 px-6 bg-[#F8FAFC]">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-16">
+                    <span class="text-[#0056D2] font-bold tracking-widest text-xs uppercase mb-3 block">Roadmap Transformasi Gudang</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-[#101828] mb-4 tracking-tight">
+                        Pilihan Layanan Sesuai Kebutuhan Anda
+                    </h2>
+                    <p class="text-lg text-gray-600 font-medium max-w-2xl">
+                        Mulai dari evaluasi kondisi saat ini (Health Check), bangun sistem kerapiannya di gudang Anda, atau serahkan eksekusi operasionalnya kepada kami.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all group flex flex-col">
+                        <span class="text-xs font-bold text-[#0056D2] mb-4 block bg-blue-50 w-fit px-3 py-1 rounded-full">Tahap 1 - Diagnosa Area</span>
+                        <h3 class="text-xl font-bold text-[#101828] mb-4">Warehouse Health Check</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">Kami datang untuk mengaudit fisik tata letak gudang, cara kerja karyawan, dan menemukan akar masalah kenapa gudang sering berantakan.</p>
+                        <button class="text-[#101828] text-sm font-bold flex items-center space-x-2 group-hover:text-[#0056D2] transition-colors w-fit mt-auto border-t border-gray-100 pt-4 w-full">
+                            <span>Tanya Layanan Ini</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all group flex flex-col">
+                        <span class="text-xs font-bold text-[#0056D2] mb-4 block bg-blue-50 w-fit px-3 py-1 rounded-full">Tahap 2 - Sistemasi Fisik</span>
+                        <h3 class="text-xl font-bold text-[#101828] mb-4">Warehouse Control Setup</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">Merapikan layout penempatan rak, memberi label lorong/barang, membuat SOP alur barang masuk (inbound) & barang keluar (outbound).</p>
+                        <button class="text-[#101828] text-sm font-bold flex items-center space-x-2 group-hover:text-[#0056D2] transition-colors w-fit mt-auto border-t border-gray-100 pt-4 w-full">
+                            <span>Tanya Layanan Ini</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all group flex flex-col">
+                        <span class="text-xs font-bold text-[#0056D2] mb-4 block bg-blue-50 w-fit px-3 py-1 rounded-full">Tahap 3 - Pendampingan Tim</span>
+                        <h3 class="text-xl font-bold text-[#101828] mb-4">Managed Warehouse Control</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">Pendampingan rutin untuk memastikan karyawan Anda tetap disiplin menjalankan SOP kerapian, serta evaluasi akurasi stok tiap minggu.</p>
+                        <button class="text-[#101828] text-sm font-bold flex items-center space-x-2 group-hover:text-[#0056D2] transition-colors w-fit mt-auto border-t border-gray-100 pt-4 w-full">
+                            <span>Tanya Layanan Ini</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 hover:shadow-xl hover:shadow-blue-900/5 hover:-translate-y-1 transition-all group flex flex-col">
+                        <span class="text-xs font-bold text-[#0056D2] mb-4 block bg-blue-50 w-fit px-3 py-1 rounded-full">Tahap 4 - Terima Beres</span>
+                        <h3 class="text-xl font-bold text-[#101828] mb-4">Full Operation Outsourcing</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6 flex-grow">Terlalu pusing atur tim gudang? Serahkan seluruh operasional fisik harian (picking, packing, receiving) kepada tim ahli dari Flow Core.</p>
+                        <button class="text-[#101828] text-sm font-bold flex items-center space-x-2 group-hover:text-[#0056D2] transition-colors w-fit mt-auto border-t border-gray-100 pt-4 w-full">
+                            <span>Tanya Layanan Ini</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Market Section -->
+        <section id="klien" class="py-24 px-6 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5">
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-[#101828] mb-6 tracking-tight">
+                            Siapa yang Sangat Membutuhkan Kami?
+                        </h2>
+                        <p class="text-lg text-gray-600 font-medium mb-8">
+                            Jika ruang gudang terasa semakin sempit, tumpukan dus barang berserakan, dan proses pengiriman memakan waktu terlalu lama, Anda butuh tim yang bisa menatanya.
+                        </p>
+                        <button class="bg-[#101828] text-white px-8 py-4 rounded-xl text-sm font-bold hover:bg-[#0056D2] transition-colors shadow-lg">
+                            Diskusikan Masalah Anda
+                        </button>
+                    </div>
+                    
+                    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+                        <div class="p-6 bg-[#F8FAFC] border border-gray-100 rounded-2xl flex items-start space-x-4">
+                            <div class="p-3 bg-white text-[#0056D2] rounded-xl shadow-sm border border-gray-100 flex-shrink-0">
+                                <i data-lucide="target" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#101828] mb-1">Online Seller & Brand</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">SKU barang semakin banyak, admin gudang mulai pusing mengingat posisi barang.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-[#F8FAFC] border border-gray-100 rounded-2xl flex items-start space-x-4">
+                            <div class="p-3 bg-white text-[#0056D2] rounded-xl shadow-sm border border-gray-100 flex-shrink-0">
+                                <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#101828] mb-1">Toko Retail & Grosir</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Sering rebutan stok antara pesanan online dan pembeli fisik di toko.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-[#F8FAFC] border border-gray-100 rounded-2xl flex items-start space-x-4">
+                            <div class="p-3 bg-white text-[#0056D2] rounded-xl shadow-sm border border-gray-100 flex-shrink-0">
+                                <i data-lucide="building-2" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#101828] mb-1">Distributor & Agen</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Keluar masuk barang (loading) tinggi, fisik gudang penuh sesak berantakan.</p>
+                            </div>
+                        </div>
+                        <div class="p-6 bg-[#F8FAFC] border border-gray-100 rounded-2xl flex items-start space-x-4">
+                            <div class="p-3 bg-white text-[#0056D2] rounded-xl shadow-sm border border-gray-100 flex-shrink-0">
+                                <i data-lucide="factory" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-[#101828] mb-1">Konveksi & Produsen</h4>
+                                <p class="text-sm text-gray-600 leading-relaxed">Bingung menata bahan baku mentah, bahan sisa, dan barang jadi yang siap jual.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section (Rendered via JS) -->
+        <section id="faq" class="py-24 px-6 bg-[#F8FAFC] border-t border-gray-100">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-[#0056D2] font-bold tracking-widest text-xs uppercase mb-3 block">Frequently Asked Questions</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-[#101828] mb-4 tracking-tight">
+                        Pertanyaan seputar layanan kami
+                    </h2>
+                    <p class="text-lg text-gray-600 font-medium">
+                        Temukan panduan lengkap tentang bagaimana ORE Warehousing bekerja.
+                    </p>
+                </div>
+
+                <!-- Container FAQ yang akan diisi oleh JavaScript -->
+                <div id="faq-container" class="space-y-3">
+                    <!-- FAQ items will be injected here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Services Section (ORE Consultant) -->
+        <section class="py-24 px-6 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto">
+                <div class="bg-gradient-to-br from-[#101828] to-slate-900 rounded-[2.5rem] p-10 md:p-16 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-10 shadow-2xl">
+                    <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-40"></div>
+                    
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex items-center space-x-2 mb-6 bg-white/10 w-fit px-4 py-2 rounded-full border border-white/20">
+                            <i data-lucide="briefcase" class="w-4 h-4 text-blue-300"></i>
+                            <span class="text-white text-xs font-bold tracking-widest uppercase">Layanan Lainnya</span>
+                        </div>
+                        
+                        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-6 tracking-tight leading-tight">
+                            Butuh pendampingan keuangan bisnis secara menyeluruh?
+                        </h2>
+                        <p class="text-slate-300 text-lg mb-0 font-medium leading-relaxed">
+                            Selain merapikan gudang, kami memiliki lini layanan strategis <span class="text-white font-bold">ORE Consultant</span>. Kami membantu Business Owner merapikan laporan keuangan, menyusun Business Plan, budgeting, hingga pendampingan Advisory untuk scale-up yang terukur.
+                        </p>
+                    </div>
+
+                    <div class="relative z-10 flex-shrink-0 w-full md:w-auto mt-4 md:mt-0">
+                        <a href="https://oreconsultant.com" target="_blank" rel="noopener noreferrer" class="bg-white text-[#101828] px-8 py-4 rounded-xl text-base font-bold hover:bg-gray-100 hover:scale-105 transition-all flex items-center justify-center md:justify-start space-x-3 w-full shadow-xl">
+                            <span>Kunjungi ORE Consultant</span>
+                            <i data-lucide="external-link" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-200 px-6 bg-[#101828] text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-sm"><img src="../assets/img/ore/logoa.webp" alt="Logo ORE Consultant" class="h-10 w-auto object-contain" loading="lazy"></div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-xl tracking-tight text-white leading-none">
+                            ORE <span class="font-light text-gray-400">Warehousing</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="flex space-x-6 text-sm text-gray-400">
+                    <a href="#" class="hover:text-white transition-colors">WhatsApp Konsultasi</a>
+                    <a href="https://oreconsultant.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">ORE Consultant HQ</a>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t border-gray-800 flex justify-between items-center">
+                <div class="text-[10px] text-gray-500 tracking-widest uppercase font-bold">
+                    © 2026 ORE Warehousing Operated by Flow Core.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-3');
+                navbar.classList.remove('bg-transparent', 'py-5');
+            } else {
+                navbar.classList.remove('bg-white/80', 'backdrop-blur-md', 'border-b', 'border-gray-100', 'py-3');
+                navbar.classList.add('bg-transparent', 'py-5');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let isMenuOpen = false;
+
+        const toggleMenu = () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuBtn.innerHTML = '<i data-lucide="x" class="w-6 h-6"></i>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuBtn.innerHTML = '<i data-lucide="menu" class="w-6 h-6"></i>';
+            }
+            lucide.createIcons();
+        };
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close mobile menu when a link is clicked
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // FAQ Data & Logic
+        const faqData = [
+            {
+                highlight: true,
+                question: "1. Apa itu ORE Warehousing?",
+                answer: "ORE Warehousing adalah layanan pembenahan, pengelolaan, dan kontrol performa warehouse untuk membantu bisnis memiliki stok yang lebih akurat, fulfillment yang lebih rapi, biaya gudang yang lebih terkendali, dan inventory yang lebih sehat.\n\nLayanan ini dikembangkan oleh ORE Consultant dengan dukungan operasional dari Flow Core sebagai partner pelaksana warehouse."
+            },
+            {
+                highlight: true,
+                question: "2. Apakah ORE Warehousing sama dengan jasa sewa gudang atau 3PL?",
+                answer: "Tidak sepenuhnya.\n\nORE Warehousing bukan hanya layanan penyimpanan barang. Fokus utama kami adalah membantu bisnis membangun sistem warehouse yang lebih terkontrol, mulai dari alur barang masuk, penyimpanan, picking, packing, fulfillment, stock opname, hingga reporting performa warehouse.\n\nUntuk kebutuhan operasional teknis, ORE Warehousing dijalankan bersama Flow Core sebagai operating partner."
+            },
+            {
+                highlight: true,
+                question: "3. Apa perbedaan ORE Warehousing dengan warehouse biasa?",
+                answer: "Warehouse biasa umumnya fokus pada penyimpanan dan pengiriman barang.\n\nORE Warehousing fokus pada warehouse control: bagaimana stok terbaca, barang tidak menumpuk tanpa arah, fulfillment tidak kacau, selisih stok bisa dikontrol, dan owner punya data yang cukup untuk mengambil keputusan bisnis.\n\nKami tidak hanya melihat warehouse sebagai tempat barang, tetapi sebagai titik kontrol profit, cashflow, dan operasional bisnis."
+            },
+            {
+                question: "4. Siapa yang cocok menggunakan layanan ORE Warehousing?",
+                answer: "Layanan ini cocok untuk bisnis yang mengalami kondisi seperti:\n• Stok sering selisih antara data dan fisik\n• Gudang mulai penuh tapi penjualan tidak sebanding\n• Banyak slow moving dan deadstock\n• Proses picking, packing, atau fulfillment sering terlambat\n• Owner sulit membaca nilai inventory sebenarnya\n• Tim warehouse belum punya SOP dan KPI yang jelas\n• Bisnis sedang scale up dan butuh sistem gudang yang lebih rapi\n• Perusahaan ingin menyiapkan WMS/ERP tapi proses warehouse belum siap"
+            },
+            {
+                question: "5. Apa saja layanan utama ORE Warehousing?",
+                answer: "ORE Warehousing memiliki beberapa layanan utama:\n\n**Warehouse Health Check**\nDiagnosis kondisi warehouse, stock accuracy, flow operasional, dan risiko inventory.\n\n**Warehouse Control Setup**\nPembenahan SOP, workflow, RACI, KPI, reporting, dan dashboard warehouse.\n\n**Managed Warehouse Control**\nPendampingan rutin untuk memonitor performa warehouse, stock accuracy, SLA fulfillment, dan inventory health.\n\n**Warehouse Operation Support**\nDukungan operasional warehouse bersama Flow Core untuk kebutuhan yang lebih teknis dan eksekusional."
+            },
+            {
+                question: "6. Apa output dari Warehouse Health Check?",
+                answer: "Output yang diterima klien antara lain:\n• Peta masalah warehouse\n• Analisis akar masalah\n• Review stock accuracy\n• Review flow inbound, storage, picking, packing, dan outbound\n• Identifikasi slow moving dan deadstock\n• Estimasi potensi kerugian atau kebocoran\n• Rekomendasi quick win\n• Roadmap perbaikan 30-60-90 hari"
+            },
+            {
+                question: "7. Apakah ORE Warehousing bisa membantu mengurangi deadstock?",
+                answer: "Ya. ORE Warehousing membantu bisnis membaca inventory aging, mengelompokkan produk berdasarkan pergerakan, serta memberikan rekomendasi tindakan untuk fast moving, slow moving, overstock, dan deadstock.\n\nTujuannya bukan hanya mengurangi barang menumpuk, tapi juga membantu bisnis mengurangi cash yang terkunci di inventory."
+            },
+            {
+                question: "8. Apakah ORE Warehousing membantu membuat SOP gudang?",
+                answer: "Ya. Kami dapat membantu menyusun SOP warehouse yang sesuai dengan kebutuhan bisnis, termasuk:\n• SOP inbound\n• SOP storage\n• SOP picking\n• SOP packing\n• SOP outbound\n• SOP retur\n• SOP stock opname\n• SOP barang rusak\n• SOP selisih stok\n• SOP transfer antar lokasi\n\nSOP dibuat agar mudah dijalankan tim, bukan hanya menjadi dokumen formal."
+            },
+            {
+                question: "9. Apakah ORE Warehousing bisa membantu implementasi WMS atau ERP?",
+                answer: "Ya. ORE Warehousing dapat membantu dari sisi readiness dan governance sebelum implementasi WMS/ERP.\n\nKami membantu memetakan proses bisnis, master data, alur transaksi, role user, reporting requirement, dan checklist UAT agar sistem yang digunakan benar-benar sesuai dengan kebutuhan operasional."
+            },
+            {
+                question: "10. Apakah ORE menyediakan sistem WMS sendiri?",
+                answer: "ORE Warehousing tidak selalu mewajibkan klien menggunakan sistem tertentu.\n\nKami dapat membantu bisnis menggunakan tools yang sudah ada, seperti spreadsheet, ERP existing, WMS partner, atau sistem internal klien. Fokus kami adalah memastikan proses, data, dan kontrolnya berjalan dengan benar."
+            },
+            {
+                question: "11. Apa peran Flow Core dalam ORE Warehousing?",
+                answer: "Flow Core berperan sebagai operating partner yang mendukung aspek teknis dan eksekusi warehouse.\n\nORE berfokus pada business control, KPI, dashboard, SOP, performance review, dan decision support. Flow Core mendukung implementasi operasional di lapangan sesuai scope yang disepakati."
+            },
+            {
+                question: "12. Siapa yang menjadi kontak utama klien?",
+                answer: "Untuk layanan dengan bendera ORE Warehousing, ORE menjadi strategic contact dan client relationship owner.\n\nNamun dalam pelaksanaan teknis harian, Flow Core dapat terlibat langsung sesuai kebutuhan operasional dan struktur kerja yang disepakati."
+            },
+            {
+                question: "13. Apakah ORE Warehousing bisa mengambil alih operasional gudang sepenuhnya?",
+                answer: "Bisa dipertimbangkan, tetapi tergantung scope, kapasitas, SLA, lokasi, jenis barang, volume transaksi, dan kesepakatan risiko.\n\nUntuk tahap awal, biasanya kami menyarankan dimulai dari diagnosis dan setup control terlebih dahulu sebelum masuk ke full warehouse operation."
+            },
+            {
+                question: "14. Apakah layanan ini cocok untuk bisnis retail dan e-commerce?",
+                answer: "Ya. ORE Warehousing cocok untuk bisnis retail, e-commerce, brand consumer goods, fashion, accessories, food non-perishable, dan bisnis lain yang memiliki kebutuhan inventory dan fulfillment rutin.\n\nLayanan ini sangat relevan untuk bisnis yang memiliki banyak SKU, banyak channel penjualan, atau banyak lokasi penyimpanan."
+            },
+            {
+                question: "15. Apakah ORE Warehousing membantu mengontrol biaya gudang?",
+                answer: "Ya. Kami membantu menganalisis biaya warehouse seperti manpower, storage, handling, picking-packing, fulfillment, damage, retur, dan biaya akibat stock error.\n\nTujuannya adalah membantu owner memahami apakah biaya warehouse masih sehat dibanding volume order dan skala bisnis."
+            },
+            {
+                question: "16. KPI apa saja yang biasa digunakan dalam ORE Warehousing?",
+                answer: "Beberapa KPI yang umum digunakan:\n• Stock accuracy\n• Fulfillment SLA\n• Picking accuracy\n• Packing accuracy\n• Order processing lead time\n• Inventory aging\n• Deadstock value\n• Return rate\n• Damage rate\n• Warehouse cost per order\n• Productivity per manpower\n• Stock opname discrepancy\n\nKPI akan disesuaikan dengan jenis bisnis dan maturity operasional klien."
+            },
+            {
+                question: "17. Berapa lama proses pembenahan warehouse biasanya berjalan?",
+                answer: "Tergantung kondisi bisnis. Sebagai gambaran:\n• Warehouse Health Check: sekitar 1–2 minggu\n• Warehouse Control Setup: sekitar 1–2 bulan\n• Managed Warehouse Control: berjalan bulanan\n• Full Operation Support: tergantung scope dan kompleksitas\n\nSebelum menentukan durasi, kami akan melakukan assessment awal terlebih dahulu."
+            },
+            {
+                question: "18. Data apa saja yang dibutuhkan untuk memulai?",
+                answer: "Beberapa data yang biasanya dibutuhkan:\n• Data SKU & Stok\n• Data penjualan & pembelian\n• Data inbound dan outbound\n• Data retur & stock opname\n• Layout gudang\n• Struktur tim warehouse\n• SOP existing jika ada\n• Data biaya warehouse\n• Data fulfillment/order\n\nJika data belum rapi, kami tetap bisa memulai dari diagnostic untuk memetakan kondisi awal."
+            },
+            {
+                question: "19. Apakah layanan ini bisa dilakukan untuk warehouse yang datanya masih berantakan?",
+                answer: "Bisa. Justru banyak klien membutuhkan ORE Warehousing karena data warehouse belum rapi.\n\nNamun, jika data terlalu berantakan, biasanya kami akan menyarankan fase awal berupa Warehouse Diagnostic atau Data & Process Cleanup sebelum masuk ke kontrol rutin."
+            },
+            {
+                question: "20. Bagaimana cara memulai kerja sama dengan ORE Warehousing?",
+                answer: "Proses kerja sama biasanya dimulai dari:\n1. Initial discussion\n2. Pengumpulan data awal\n3. Warehouse Health Check\n4. Penyusunan problem map dan rekomendasi\n5. Proposal scope lanjutan\n6. Setup control atau managed service\n\nDengan proses ini, solusi yang diberikan tidak dibuat berdasarkan asumsi, tetapi berdasarkan kondisi aktual warehouse klien."
+            },
+            {
+                question: "21. Berapa biaya layanan ORE Warehousing?",
+                answer: "Biaya bergantung pada scope, ukuran warehouse, jumlah SKU, volume transaksi, jumlah channel, jumlah lokasi, dan tingkat kompleksitas masalah.\n\nSecara umum, layanan dapat berbentuk project-based untuk diagnostic/setup atau monthly retainer untuk kontrol rutin."
+            },
+            {
+                question: "22. Apakah bisa mulai dari assessment dulu?",
+                answer: "Ya. Kami sangat menyarankan bisnis memulai dari Warehouse Health Check agar masalah utama bisa dipetakan sebelum masuk ke implementasi yang lebih besar.\n\nIni membantu klien menghindari pembenahan yang terlalu mahal, terlalu cepat, atau tidak tepat sasaran."
+            },
+            {
+                question: "23. Apakah ORE Warehousing memberikan garansi hasil?",
+                answer: "ORE Warehousing memberikan komitmen pada proses, kontrol, analisis, dan rekomendasi berbasis data.\n\nHasil akhir seperti peningkatan stock accuracy, penurunan deadstock, atau perbaikan SLA sangat bergantung pada kondisi awal, disiplin eksekusi, kualitas data, dan komitmen tim klien dalam menjalankan perubahan."
+            },
+            {
+                question: "24. Apakah ORE bisa membantu training tim warehouse?",
+                answer: "Ya. Kami dapat membantu training tim terkait SOP, workflow, KPI, reporting, stock opname, dan penggunaan dashboard/control tools yang disepakati.\n\nTraining dibuat praktis agar tim memahami apa yang harus dilakukan, bukan hanya memahami konsep."
+            },
+            {
+                question: "25. Apa manfaat utama menggunakan ORE Warehousing?",
+                answer: "Manfaat utama yang diharapkan:\n• Stok lebih akurat & Fulfillment lebih rapi\n• Barang slow moving dan deadstock lebih terbaca\n• Biaya warehouse lebih terkontrol\n• Owner punya visibility atas inventory\n• Tim warehouse punya SOP dan KPI yang jelas\n• Keputusan pembelian dan produksi lebih berbasis data\n• Cash yang terkunci di inventory bisa dikendalikan\n• Warehouse lebih siap untuk scale up"
+            }
+        ];
+
+        const faqContainer = document.getElementById('faq-container');
+        let currentOpenIndex = null;
+
+        // Render FAQ Items
+        faqData.forEach((faq, index) => {
+            const faqItem = document.createElement('div');
+            // Base classes
+            let itemClasses = 'border rounded-xl overflow-hidden transition-all duration-300 bg-white border-gray-200 hover:border-gray-300';
+            faqItem.className = itemClasses;
+            faqItem.id = `faq-item-${index}`;
+
+            // Handle formatting logic for the answer text
+            const formattedAnswer = faq.answer.split('\n').map(line => {
+                let formattedLine = line;
+                // Bold formatting
+                if (formattedLine.includes('**')) {
+                    const parts = formattedLine.split('**');
+                    if (parts.length >= 3) {
+                        formattedLine = `${parts[0]}<span class="font-bold text-[#101828]">${parts[1]}</span>${parts[2]}`;
+                    }
+                }
+                // Bullet points
+                if (formattedLine.startsWith('•')) {
+                    return `<p class="pl-3 relative">${formattedLine}</p>`;
+                }
+                return `<p class="mb-2">${formattedLine}</p>`;
+            }).join('');
+
+            const badgeHtml = faq.highlight ? `<span class="hidden md:flex flex-shrink-0 bg-[#0056D2] text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-widest">Penting</span>` : '';
+
+            faqItem.innerHTML = `
+                <button class="faq-btn w-full flex justify-between items-center p-5 md:p-6 text-left focus:outline-none" data-index="${index}">
+                    <div class="flex items-center space-x-4 pr-4">
+                        ${badgeHtml}
+                        <span class="faq-title font-bold text-sm md:text-base text-[#101828] transition-colors duration-300">
+                            ${faq.question}
+                        </span>
+                    </div>
+                    <i data-lucide="chevron-down" class="faq-icon flex-shrink-0 text-gray-400 transition-transform duration-300 w-5 h-5"></i>
+                </button>
+                <div class="faq-content overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 px-6 pb-0" id="faq-content-${index}">
+                    <div class="text-gray-600 leading-relaxed text-sm md:text-base border-t border-gray-100 pt-4 pb-6 whitespace-pre-line">
+                        ${formattedAnswer}
+                    </div>
+                </div>
+            `;
+            faqContainer.appendChild(faqItem);
+        });
+
+        // Re-initialize icons for newly added DOM elements
+        lucide.createIcons();
+
+        // FAQ Toggle Logic
+        const faqButtons = document.querySelectorAll('.faq-btn');
+        faqButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const index = this.getAttribute('data-index');
+                const content = document.getElementById(`faq-content-${index}`);
+                const icon = this.querySelector('.faq-icon');
+                const title = this.querySelector('.faq-title');
+                const parentItem = document.getElementById(`faq-item-${index}`);
+
+                // If clicking the same one that is open, close it
+                if (currentOpenIndex === index) {
+                    content.classList.replace('max-h-[1000px]', 'max-h-0');
+                    content.classList.replace('opacity-100', 'opacity-0');
+                    icon.classList.remove('rotate-180', 'text-[#0056D2]');
+                    icon.classList.add('text-gray-400');
+                    title.classList.remove('text-[#0056D2]');
+                    title.classList.add('text-[#101828]');
+                    parentItem.classList.remove('shadow-md', 'border-blue-200');
+                    parentItem.classList.add('border-gray-200');
+                    currentOpenIndex = null;
+                } else {
+                    // Close previously open
+                    if (currentOpenIndex !== null) {
+                        const prevContent = document.getElementById(`faq-content-${currentOpenIndex}`);
+                        const prevBtn = document.querySelector(`.faq-btn[data-index="${currentOpenIndex}"]`);
+                        const prevIcon = prevBtn.querySelector('.faq-icon');
+                        const prevTitle = prevBtn.querySelector('.faq-title');
+                        const prevParentItem = document.getElementById(`faq-item-${currentOpenIndex}`);
+
+                        prevContent.classList.replace('max-h-[1000px]', 'max-h-0');
+                        prevContent.classList.replace('opacity-100', 'opacity-0');
+                        prevIcon.classList.remove('rotate-180', 'text-[#0056D2]');
+                        prevIcon.classList.add('text-gray-400');
+                        prevTitle.classList.remove('text-[#0056D2]');
+                        prevTitle.classList.add('text-[#101828]');
+                        prevParentItem.classList.remove('shadow-md', 'border-blue-200');
+                        prevParentItem.classList.add('border-gray-200');
+                    }
+
+                    // Open new one
+                    content.classList.replace('max-h-0', 'max-h-[1000px]');
+                    content.classList.replace('opacity-0', 'opacity-100');
+                    icon.classList.add('rotate-180', 'text-[#0056D2]');
+                    icon.classList.remove('text-gray-400');
+                    title.classList.add('text-[#0056D2]');
+                    title.classList.remove('text-[#101828]');
+                    parentItem.classList.add('shadow-md', 'border-blue-200');
+                    parentItem.classList.remove('border-gray-200');
+                    
+                    currentOpenIndex = index;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
